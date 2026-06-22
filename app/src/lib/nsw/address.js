@@ -40,6 +40,44 @@ async function queryNearestAddress(lngLat, half, timeout) {
   return best ? titleCaseAddress(best) : null
 }
 
+function houseNumber(address) {
+  if (!address) return null
+  const m = address.trim().match(/^[\w/-]+/)
+  return m ? m[0] : null
+}
+
+/** Address points (as house-number labels) within a map viewport.
+ *  Used for the "house numbers on parcels" label layer — only called at
+ *  high zoom, where the bounding box is small enough to stay fast. */
+export async function addressPointsInBounds([west, south, east, north], { limit = 500 } = {}) {
+  const data = await arcgis(`${LAYERS.addressPoint}/query`, {
+    geometry: JSON.stringify({
+      xmin: west, ymin: south, xmax: east, ymax: north,
+      spatialReference: { wkid: 4326 },
+    }),
+    geometryType: 'esriGeometryEnvelope',
+    inSR: '4326',
+    outSR: '4326',
+    spatialRel: 'esriSpatialRelIntersects',
+    outFields: 'address',
+    returnGeometry: 'true',
+    resultRecordCount: String(limit),
+  }, { label: 'address', timeout: 8000 })
+
+  const feats = data.features || []
+  return {
+    type: 'FeatureCollection',
+    features: feats
+      .filter((f) => f.geometry)
+      .map((f) => ({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [f.geometry.x, f.geometry.y] },
+        properties: { number: houseNumber(f.attributes.address) },
+      }))
+      .filter((f) => f.properties.number),
+  }
+}
+
 /** Nearest official address string to [lng, lat], or null if none within range.
  *  This specific NSW layer has very inconsistent latency for the identical
  *  query — observed 60 ms, 1 s, and 60 s on consecutive calls to the same point.

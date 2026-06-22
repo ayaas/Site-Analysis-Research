@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
+import { addressPointsInBounds } from '../lib/nsw/address.js'
 
 const TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
@@ -13,6 +14,10 @@ const NSW_CENTER = [147.0, -32.5]
 const PARCEL_SRC = 'site-parcel'
 const PARCEL_FILL = 'site-parcel-fill'
 const PARCEL_LINE = 'site-parcel-line'
+
+const HOUSE_SRC = 'house-numbers'
+const HOUSE_LAYER = 'house-numbers-layer'
+const HOUSE_MIN_ZOOM = 17
 
 export default function MapView({ styleKey, onMapReady, onParcelClick, flyTarget, parcelData, marker, picking }) {
   const containerRef = useRef(null)
@@ -51,12 +56,57 @@ export default function MapView({ styleKey, onMapReady, onParcelClick, flyTarget
       })
     }
 
+    function addHouseLayer() {
+      if (map.getSource(HOUSE_SRC)) return
+      map.addSource(HOUSE_SRC, { type: 'geojson', data: emptyFC() })
+      map.addLayer({
+        id: HOUSE_LAYER, type: 'symbol', source: HOUSE_SRC,
+        minzoom: HOUSE_MIN_ZOOM,
+        layout: {
+          'text-field': ['get', 'number'],
+          'text-size': 11,
+          'text-allow-overlap': false,
+          'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
+        },
+        paint: {
+          'text-color': '#202030',
+          'text-halo-color': '#ffffff',
+          'text-halo-width': 1.2,
+        },
+      })
+    }
+
+    let houseReqId = 0
+    let houseDebounce = null
+    function refreshHouseNumbers() {
+      clearTimeout(houseDebounce)
+      if (map.getZoom() < HOUSE_MIN_ZOOM) {
+        const src = map.getSource(HOUSE_SRC)
+        if (src) src.setData(emptyFC())
+        return
+      }
+      houseDebounce = setTimeout(async () => {
+        const reqId = ++houseReqId
+        const b = map.getBounds()
+        try {
+          const fc = await addressPointsInBounds([b.getWest(), b.getSouth(), b.getEast(), b.getNorth()])
+          if (reqId !== houseReqId) return // stale — a newer pan/zoom superseded this
+          const src = map.getSource(HOUSE_SRC)
+          if (src) src.setData(fc)
+        } catch {
+          // transient service error — leave existing labels in place
+        }
+      }, 300)
+    }
+
     map.on('load', () => {
       addParcelLayers()
+      addHouseLayer()
       onMapReady && onMapReady(map)
     })
     // Re-add custom layers after a basemap style switch.
-    map.on('style.load', addParcelLayers)
+    map.on('style.load', () => { addParcelLayers(); addHouseLayer() })
+    map.on('moveend', refreshHouseNumbers)
 
     map.on('click', (e) => {
       clickRef.current && clickRef.current([e.lngLat.lng, e.lngLat.lat])
