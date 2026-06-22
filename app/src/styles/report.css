@@ -21,11 +21,21 @@
   padding: 64px 60px;
   background: var(--canvas);
   position: relative;
+}
+
+/* A real PDF page must never grow past one A4 sheet. The content template
+   (data-page="content") is deliberately left auto-height above so its true
+   natural height can be measured for pagination — exportPdf.js applies this
+   same cap to the per-page chunks it builds for capture. */
+.report-page-fixed {
+  height: 1123px;
   overflow: hidden;
 }
 
 /* ── Cover — dark band (hero-band-dark posture) ──────────── */
 .report-cover {
+  height: 1123px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,7 +81,7 @@
   overflow: hidden;
   background: var(--surface-dark-soft);
 }
-.report-cover .cover-map img { width: 100%; display: block; }
+.report-cover .cover-map img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
 .report-cover .cover-map-attrib {
   font-family: var(--font-mono);
   font-size: 9px;

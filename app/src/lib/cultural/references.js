@@ -51,12 +51,16 @@ function nationField(lga, sw) {
     })
   }
   const pending = !lga.reviewed
+  // lga.nationLinks often repeats the same council page already named in
+  // lga.source — drop that duplicate so "Source: X" isn't followed by an
+  // almost-identical "X — url" line right under it.
+  const nationLinks = (lga.nationLinks || []).filter((l) => l.text !== lga.source)
   return field(lga.reviewed ? 'Nation / language group' : 'Nation / language group (drafted — pending review)', lga.nation, KIND.CURATED, {
     source: lga.source,
     note: pending
       ? 'Sourced from the local council\'s own published Acknowledgement of Country, not yet confirmed by a person. Treat as indicative, not a precise boundary.'
       : 'Sourced from the local council\'s own published Acknowledgement of Country. Treat as indicative, not a precise boundary.',
-    links: [...(lga.nationLinks || []), ...sw.nation.links],
+    links: [...nationLinks, ...sw.nation.links],
   })
 }
 

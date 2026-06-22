@@ -13,11 +13,12 @@ const ReportLayout = forwardRef(function ReportLayout({ site, citations, mapImag
   const official = site.fields.official.filter((f) => f.kind !== 'loading')
   const planning = site.fields.planning.filter((f) => f.kind !== 'loading')
   const country = site.fields.country.filter((f) => f.kind !== 'loading')
+  const environment = site.fields.environment.filter((f) => f.kind !== 'loading')
 
   return (
     <div className="report-root" ref={ref}>
-      {/* ── Cover ── */}
-      <section className="report-page report-cover" data-page>
+      {/* ── Cover — always exactly one page; exportPdf.js never paginates this ── */}
+      <section className="report-page report-cover" data-page="cover">
         <div>
           <div className="cover-band" />
           <div className="cover-eyebrow">Connection to Country · Site brief</div>
@@ -49,8 +50,9 @@ const ReportLayout = forwardRef(function ReportLayout({ site, citations, mapImag
         </div>
       </section>
 
-      {/* ── Content ── */}
-      <section className="report-page" data-page>
+      {/* ── Content — exportPdf.js splits these children across as many pages
+          as needed, breaking only between elements, never inside one. ── */}
+      <section className="report-page" data-page="content">
         <h2>Site facts</h2>
         <div className="report-grid">
           {official.map((f, i) => (
@@ -90,6 +92,13 @@ const ReportLayout = forwardRef(function ReportLayout({ site, citations, mapImag
           </div>
         ))}
 
+        <h2>Environment</h2>
+        <div className="report-grid">
+          {environment.map((f, i) => (
+            <Field key={i} f={f} />
+          ))}
+        </div>
+
         <h2>Sources &amp; citations</h2>
         <ol className="report-citations">
           {citations.map((c, i) => (
@@ -97,11 +106,6 @@ const ReportLayout = forwardRef(function ReportLayout({ site, citations, mapImag
           ))}
           <li>{MAPBOX_ATTRIB}</li>
         </ol>
-
-        <div className="report-foot">
-          <span>Country · Site Research</span>
-          <span>Page 2</span>
-        </div>
       </section>
     </div>
   )
@@ -112,7 +116,11 @@ function Field({ f }) {
     <div className="report-field">
       <div className="rf-label">{f.label}</div>
       <div className={`rf-value ${f.kind === 'na' || f.kind === 'link' ? 'muted' : ''}`}>{f.value}</div>
+      {f.note && <div className="rf-note">{f.note}</div>}
       {f.source && <div className="rf-source">Source: {f.source}</div>}
+      {f.links && (
+        <div className="rf-source">{f.links.map((l) => l.text + ' — ' + l.url).join('  ·  ')}</div>
+      )}
     </div>
   )
 }

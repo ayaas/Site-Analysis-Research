@@ -1,11 +1,80 @@
 import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
 
-// Capture each .report-page element and place it on its own A4 page.
+const PAGE_H = 1123 // .report-page height, px (A4 @ ~96dpi)
+const PAGE_PAD_TOP = 64
+const PAGE_PAD_BOTTOM = 64 + 24 // leaves room for the per-page footer
+
+const HTML2CANVAS_OPTS = {
+  scale: 2,
+  useCORS: true,
+  backgroundColor: '#ffffff',
+  logging: false,
+  // html2canvas measures negative letter-spacing incorrectly and renders
+  // glyphs squashed together — strip it in the cloned DOM used for the
+  // snapshot only; the live report/app styling is untouched.
+  onclone: (doc) => {
+    doc.querySelectorAll('*').forEach((el) => {
+      el.style.letterSpacing = 'normal'
+    })
+  },
+}
+
+async function snapshot(el) {
+  return html2canvas(el, HTML2CANVAS_OPTS)
+}
+
+function drawFullPage(pdf, canvas, pw, ph, isFirst) {
+  if (!isFirst) pdf.addPage()
+  const img = canvas.toDataURL('image/jpeg', 0.92)
+  pdf.addImage(img, 'JPEG', 0, 0, pw, ph)
+}
+
+// Split `content`'s direct children into groups that each fit within one
+// page's usable height, breaking only between elements — never inside one,
+// so text can't be cut or doubled at a page seam. Each group becomes its own
+// detached .report-page-fixed clone (with the same heading styling), captured
+// and placed on its own PDF page.
+function buildContentPageChunks(content, pageNumberStart) {
+  const usableH = PAGE_H - PAGE_PAD_TOP - PAGE_PAD_BOTTOM
+  const children = Array.from(content.children)
+
+  const groups = []
+  let current = []
+  let currentH = 0
+  for (const child of children) {
+    const h = child.getBoundingClientRect().height
+    if (current.length > 0 && currentH + h > usableH) {
+      groups.push(current)
+      current = []
+      currentH = 0
+    }
+    current.push(child)
+    currentH += h
+  }
+  if (current.length > 0) groups.push(current)
+
+  return groups.map((group, i) => {
+    const page = document.createElement('section')
+    page.className = 'report-page report-page-fixed'
+    group.forEach((child) => page.appendChild(child.cloneNode(true)))
+
+    const foot = document.createElement('div')
+    foot.className = 'report-foot'
+    foot.innerHTML = `<span>Country · Site Research</span><span>Page ${pageNumberStart + i}</span>`
+    page.appendChild(foot)
+
+    return page
+  })
+}
+
+// Capture the cover (always exactly one page) plus the content section,
+// auto-paginated across as many pages as the data needs.
 export async function exportReportPdf(reportRoot, filename = 'country-site-brief.pdf') {
   if (!reportRoot) return
-  const pages = Array.from(reportRoot.querySelectorAll('[data-page]'))
-  if (pages.length === 0) return
+  const cover = reportRoot.querySelector('[data-page="cover"]')
+  const content = reportRoot.querySelector('[data-page="content"]')
+  if (!cover && !content) return
 
   const pdf = new jsPDF({ unit: 'pt', format: 'a4', compress: true })
   const pw = pdf.internal.pageSize.getWidth()
@@ -16,45 +85,22 @@ export async function exportReportPdf(reportRoot, filename = 'country-site-brief
   // for our (negative) letter-spacing values overlap glyphs.
   if (document.fonts?.ready) await document.fonts.ready
 
-  let firstSlice = true
-  for (let i = 0; i < pages.length; i++) {
-    const canvas = await html2canvas(pages[i], {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: '#ffffff',
-      logging: false,
-      // html2canvas measures negative letter-spacing incorrectly and renders
-      // glyphs squashed together — strip it in the cloned DOM used for the
-      // snapshot only; the live report/app styling is untouched.
-      onclone: (doc) => {
-        doc.querySelectorAll('*').forEach((el) => {
-          el.style.letterSpacing = 'normal'
-        })
-      },
-    })
+  let isFirst = true
 
-    // A .report-page can grow taller than one A4 page (long Country/Environment
-    // content). Forcing it into a fixed page height used to squash the whole
-    // image vertically; instead, slice it into page-height chunks and overflow
-    // onto extra PDF pages so the text keeps its native aspect ratio.
-    const sliceHeightPx = Math.floor(canvas.width * (ph / pw))
-    let renderedPx = 0
-    while (renderedPx < canvas.height) {
-      const sliceH = Math.min(sliceHeightPx, canvas.height - renderedPx)
-      const sliceCanvas = document.createElement('canvas')
-      sliceCanvas.width = canvas.width
-      sliceCanvas.height = sliceH
-      sliceCanvas
-        .getContext('2d')
-        .drawImage(canvas, 0, renderedPx, canvas.width, sliceH, 0, 0, canvas.width, sliceH)
-      const img = sliceCanvas.toDataURL('image/jpeg', 0.92)
+  if (cover) {
+    const canvas = await snapshot(cover)
+    drawFullPage(pdf, canvas, pw, ph, isFirst)
+    isFirst = false
+  }
 
-      if (!firstSlice) pdf.addPage()
-      const sliceHPt = pw * (sliceH / canvas.width)
-      pdf.addImage(img, 'JPEG', 0, 0, pw, sliceHPt)
-
-      renderedPx += sliceH
-      firstSlice = false
+  if (content) {
+    const chunkPages = buildContentPageChunks(content, isFirst ? 1 : 2)
+    for (const page of chunkPages) {
+      content.parentNode.appendChild(page) // same offscreen context as the report root
+      const canvas = await snapshot(page)
+      page.remove()
+      drawFullPage(pdf, canvas, pw, ph, isFirst)
+      isFirst = false
     }
   }
 
