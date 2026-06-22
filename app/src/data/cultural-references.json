@@ -1,0 +1,1437 @@
+{
+  "meta": {
+    "reviewed": "2026-06-22",
+    "scope": "NSW statewide",
+    "note": "Links-only scaffold, plus per-LGA 'nation' entries for 103 of NSW's 128 LGAs, each seeded from that council's own published Acknowledgement of Country (quoted or drafted + cited per entry) — never invented or inferred. All entries were reviewed and confirmed by the project owner on 2026-06-22; see each entry's sourcedBy field for how it was originally researched. The remaining 25 LGAs were deliberately left without an entry — live contested-naming disputes, no primary council citation found, or large amalgamated areas with no single unified statement — and fall back to the statewide links plus a 'No verified reference yet' marker, never a guess."
+  },
+  "statewide": {
+    "nation": {
+      "value": "Indicative only — identify Country via the AIATSIS map and the relevant Local Aboriginal Land Council.",
+      "links": [
+        {
+          "text": "AIATSIS Map of Indigenous Australia",
+          "url": "https://aiatsis.gov.au/explore/map-indigenous-australia"
+        },
+        {
+          "text": "Aboriginal Land Council of NSW",
+          "url": "https://alc.org.au/"
+        },
+        {
+          "text": "Find your Local Aboriginal Land Council",
+          "url": "https://alc.org.au/lalc/"
+        }
+      ]
+    },
+    "language": {
+      "links": [
+        {
+          "text": "First Languages Australia — Gambay map",
+          "url": "https://gambay.com.au/"
+        },
+        {
+          "text": "First Languages Australia",
+          "url": "https://www.firstlanguages.org.au/"
+        }
+      ]
+    },
+    "significance": {
+      "links": [
+        {
+          "text": "NSW Connecting with Country framework (PDF)",
+          "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-10/connecting-with-country.pdf"
+        },
+        {
+          "text": "Welcome to Country",
+          "url": "https://www.welcometocountry.org/"
+        },
+        {
+          "text": "Reconciliation Australia",
+          "url": "https://www.reconciliation.org.au/"
+        }
+      ]
+    },
+    "history": {
+      "links": [
+        {
+          "text": "AIATSIS — collections & research",
+          "url": "https://aiatsis.gov.au/"
+        },
+        {
+          "text": "NSW Aboriginal Heritage Information Management System (AHIMS)",
+          "url": "https://www.environment.nsw.gov.au/topics/aboriginal-cultural-heritage/ahims"
+        }
+      ]
+    },
+    "seasonal": {
+      "links": [
+        {
+          "text": "BoM Indigenous Weather Knowledge — seasonal calendars",
+          "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars"
+        }
+      ]
+    },
+    "environment": {
+      "links": [
+        {
+          "text": "Atlas of Living Australia",
+          "url": "https://www.ala.org.au/"
+        },
+        {
+          "text": "NSW BioNet",
+          "url": "https://www.environment.nsw.gov.au/topics/animals-and-plants/biodiversity/nsw-bionet"
+        }
+      ]
+    }
+  },
+  "byLga": {
+    "SYDNEY": {
+      "nation": "Gadigal people of the Eora Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Quoted directly from the City of Sydney's published Acknowledgement of Country, fetched and confirmed 2026-06-21. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Sydney — Reconciliation",
+      "nationLinks": [
+        {
+          "text": "“We acknowledge the Gadigal of the Eora nation as the Traditional Custodians of our local area.” — City of Sydney",
+          "url": "https://www.cityofsydney.nsw.gov.au/people-communities/reconciliation"
+        }
+      ]
+    },
+    "CITY OF PARRAMATTA": {
+      "nation": "Burramattagal clan of the Dharug (Darug) Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from City of Parramatta's published Acknowledgement of Country and First Nations pages, researched 2026-06-21 — could not be directly re-fetched to quote verbatim due to the site blocking automated requests, so wording is paraphrased, not a direct quote. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Parramatta — First Nations / Dharug and First Nations Community",
+      "nationLinks": [
+        {
+          "text": "City of Parramatta — Dharug and First Nations Community",
+          "url": "https://www.cityofparramatta.nsw.gov.au/community/first-nations/dharug-and-first-nations-community"
+        },
+        {
+          "text": "City of Parramatta — First Nations",
+          "url": "https://www.cityofparramatta.nsw.gov.au/community/first-nations"
+        }
+      ]
+    },
+    "LIVERPOOL": {
+      "nation": "Cabrogal clan of the Dharug (Darug) Nation",
+      "notes": "Council also acknowledges this land was accessed by peoples of the Dharawal and Dharug Nations more broadly.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Liverpool City Council's published Acknowledgement of Country and cultural fact sheets, researched 2026-06-21 — could not be directly re-fetched to quote verbatim due to the site blocking automated requests, so wording is paraphrased, not a direct quote. Confirmed by the project owner on 2026-06-22.",
+      "source": "Liverpool City Council — Aboriginal People",
+      "nationLinks": [
+        {
+          "text": "Liverpool City Council — Aboriginal People",
+          "url": "https://www.liverpool.nsw.gov.au/community/your-community/aboriginal-people"
+        }
+      ],
+      "seasonalLinks": [
+        {
+          "text": "BoM D'harawal seasonal calendar (a neighbouring language group also named in Council's acknowledgement — not confirmed as specific to this exact area)",
+          "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/dharawal-calendar"
+        }
+      ]
+    },
+    "ALBURY CITY": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from AlburyCity's published Acknowledgement of Country, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "AlburyCity — Aboriginal and Torres Strait Islander communities",
+      "nationLinks": [
+        {
+          "text": "AlburyCity — Aboriginal and Torres Strait Islander communities",
+          "url": "https://www.alburycity.nsw.gov.au/community/support/aboriginal-community"
+        }
+      ]
+    },
+    "BALLINA": {
+      "nation": "Bundjalung Nation — Nyangbul people (Ballina coast and hinterland)",
+      "notes": "Council also recognises the Widjabul Wia-bal people as Traditional Owners for parts of the Shire.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Ballina Shire Council's published Aboriginal Culture and Heritage page, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Ballina Shire Council — Aboriginal Culture and Heritage",
+      "nationLinks": [
+        {
+          "text": "Ballina Shire Council — Aboriginal Culture and Heritage",
+          "url": "https://www.ballina.nsw.gov.au/Community/Culture-and-Events/Aboriginal-and-European-Heritage/Aboriginal-Culture-and-Heritage"
+        }
+      ]
+    },
+    "BATHURST REGIONAL": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Bathurst Regional Council's published Acknowledgement of Country, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Bathurst Regional Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Bathurst Regional Council — Acknowledgement of Country",
+          "url": "https://www.bathurst.nsw.gov.au/community/arts-and-culture/bathurst-200/394-community/bathurst-200/3206-acknowledgement-of-country.html"
+        }
+      ]
+    },
+    "BAYSIDE": {
+      "nation": "Gadigal and Bidjigal people of the Eora Nation",
+      "notes": "Some Council documents instead list the Gweagal, Bidjigal and Gadigal clans — wording is not fully consistent across Council's own publications.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Bayside Council's published First Nations page, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Bayside Council — First Nations",
+      "nationLinks": [
+        {
+          "text": "Bayside Council — Aboriginal and Torres Strait Islanders",
+          "url": "https://www.bayside.nsw.gov.au/community/aboriginal-and-torres-strait-islanders"
+        }
+      ]
+    },
+    "BEGA VALLEY": {
+      "nation": "Yuin Nation (Yuin-Monaro)",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Bega Valley Shire Council's own meeting minutes (where the Mayor's Acknowledgement of Country is recorded), researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Bega Valley Shire Council — Council meeting minutes",
+      "nationLinks": [
+        {
+          "text": "Bega Valley Shire Council — Minutes of Council, 16 March 2022",
+          "url": "https://begavalley.infocouncil.biz/Open/2022/03/OC_16032022_MIN_747.HTM"
+        }
+      ]
+    },
+    "BELLINGEN": {
+      "nation": "Gumbaynggirr people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Bellingen Shire Council's published Welcome to Country page, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Bellingen Shire Council — Welcome to Country",
+      "nationLinks": [
+        {
+          "text": "Bellingen Shire Council — Welcome to Country",
+          "url": "https://www.bellingen.nsw.gov.au/Community/Community-Support/Aboriginal-and-Torres-Strait-Islander-Community/Welcome-to-Country"
+        }
+      ]
+    },
+    "BLAND": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Bland Shire Council's own meeting business papers (the Council's standing \"Pause for Reflection\" acknowledgement), researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Bland Shire Council — Council business papers",
+      "nationLinks": [
+        {
+          "text": "Bland Shire Council — Business Paper, July 2021",
+          "url": "https://www.blandshire.nsw.gov.au/files/sharedassets/public/v/2/business-papers/2021/business-paper-july-2021.pdf"
+        }
+      ]
+    },
+    "BLAYNEY": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Blayney Shire Council's published material, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Blayney Shire Council — About the Shire",
+      "nationLinks": [
+        {
+          "text": "Blayney Shire Council — About the Shire",
+          "url": "https://www.blayney.nsw.gov.au/our-community/about-blayney-shire/about-the-shire"
+        }
+      ]
+    },
+    "BLUE MOUNTAINS": {
+      "nation": "Dharug (Darug) and Gundungurra peoples, jointly",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Blue Mountains City Council's published Recognition of Traditional Owners page, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Blue Mountains City Council — Recognition of Traditional Owners",
+      "nationLinks": [
+        {
+          "text": "Blue Mountains City Council — Recognition of Traditional Owners",
+          "url": "https://www.bmcc.nsw.gov.au/WHA/traditional-owners"
+        }
+      ]
+    },
+    "BOURKE": {
+      "nation": "Ngemba (Ngiyaampaa) people",
+      "notes": "Bourke Shire is large and culturally diverse — the Barkandji (Baakandji) people are custodians of land to the northwest along the Darling–Baaka River. Treat as indicative of the township area only, not the whole shire.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Bourke Shire Council's own published Aboriginal Heritage Study, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Bourke Shire Council — Aboriginal Heritage Study (draft, 2019)",
+      "nationLinks": [
+        {
+          "text": "Bourke Shire Council — Bourke Shire Aboriginal Heritage Study",
+          "url": "https://bourke.nsw.gov.au/wp-content/uploads/2019/02/Bourke-Shire-Aboriginal-Heritage-Study-Draft-2019.pdf"
+        }
+      ]
+    },
+    "BREWARRINA": {
+      "nation": "Ngemba, Murrawarri, Euahlayi, Weilwan, Ualari and Barranbinya peoples",
+      "notes": "Council's own acknowledgement names six groups jointly — this is one of the more culturally diverse LGAs in NSW; do not reduce to a single name.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Brewarrina Shire Council's published First Nations page, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Brewarrina Shire Council — First Nations",
+      "nationLinks": [
+        {
+          "text": "Brewarrina Shire Council — First Nations",
+          "url": "https://brewarrina.nsw.gov.au/first-nations/"
+        }
+      ]
+    },
+    "BROKEN HILL": {
+      "nation": "Wilyakali (Wiljaali) people",
+      "notes": "Sourced via the Broken Hill Local Aboriginal Land Council rather than a directly-confirmed City Council statement.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from secondary research naming the Broken Hill Local Aboriginal Land Council's own community, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Broken Hill Local Aboriginal Land Council",
+      "nationLinks": [
+        {
+          "text": "Broken Hill Local Aboriginal Land Council — About",
+          "url": "https://bhlalc.org.au/about-contact/"
+        }
+      ]
+    },
+    "BURWOOD": {
+      "nation": "Wangal clan of the Eora Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Burwood Council's own meeting records and published material, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Burwood Council — History and Heritage",
+      "nationLinks": [
+        {
+          "text": "Burwood Council — History and Heritage",
+          "url": "https://www.burwood.nsw.gov.au/Our-Council/Our-Burwood/History-and-Heritage"
+        }
+      ]
+    },
+    "BYRON": {
+      "nation": "Bundjalung of Byron Bay — Arakwal people",
+      "notes": "Native-title-recognised group, formalised via a Memorandum of Understanding with Council. Part of the wider Bundjalung Nation.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Byron Shire Council's published Welcome to Country & Acknowledgement of Country Protocols page, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Byron Shire Council — Welcome to Country & Acknowledgement of Country Protocols",
+      "nationLinks": [
+        {
+          "text": "Byron Shire Council — Welcome to Country & Acknowledgement of Country Protocols",
+          "url": "https://www.byron.nsw.gov.au/Council/About-Byron-Shire/Aboriginal-Torres-Strait-Communities/Welcome-to-Country-Acknowledgement-of-Country-Protocols"
+        }
+      ]
+    },
+    "CAMDEN": {
+      "nation": "Dharawal (Tharawal) people",
+      "notes": "Council's fuller acknowledgement also recognises the Dharug and Gundungurra Nations.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Camden Council's own Aboriginal Protocols Policy, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Camden Council — Aboriginal Protocols Policy",
+      "nationLinks": [
+        {
+          "text": "Camden Council — Aboriginal Protocols Policy",
+          "url": "https://www.camden.nsw.gov.au/assets/pdfs/Council/Policies/Aboriginal-Protocols-Policy-P4.0185.1.pdf"
+        }
+      ]
+    },
+    "CAMPBELLTOWN": {
+      "nation": "Dharawal (Tharawal) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Campbelltown City Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Campbelltown City Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Campbelltown City Council — Acknowledgement of Country",
+          "url": "https://www.campbelltown.nsw.gov.au/About-Campbelltown/Campbelltown-Aboriginal-Art-and-Culture-Centre/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "CANADA BAY": {
+      "nation": "Wangal clan of the Eora Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from City of Canada Bay Council's own dedicated Traditional Custodians page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Canada Bay Council — Traditional Custodians",
+      "nationLinks": [
+        {
+          "text": "City of Canada Bay Council — Traditional Custodians",
+          "url": "https://www.canadabay.nsw.gov.au/lifestyle/our-area/traditional-custodians"
+        }
+      ]
+    },
+    "CANTERBURY-BANKSTOWN": {
+      "nation": "Darug (Dharug) people",
+      "notes": "Local clans within the LGA are sometimes named more specifically as the Cadigal, Wangal and Bediagal clans of the Darug.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from City of Canterbury Bankstown's own published First Nations pages, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Canterbury Bankstown — Aboriginal and Torres Strait Islanders",
+      "nationLinks": [
+        {
+          "text": "City of Canterbury Bankstown — Aboriginal and Torres Strait Islanders",
+          "url": "https://www.cbcity.nsw.gov.au/culture-and-community/aboriginal-and-torres-strait-islanders"
+        }
+      ]
+    },
+    "CARRATHOOL": {
+      "nation": "Wiradjuri, Nari Nari, Yitha Yitha and Ngiyampaa Wangaaypuwan peoples",
+      "notes": "Sourced from a joint Hay and Carrathool Shire Councils acknowledgement, not a Carrathool-only statement.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from the joint Hay and Carrathool Regional Drought Resilience Plan, which quotes both Councils' Acknowledgement of Country, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Hay and Carrathool Shire Councils — Regional Drought Resilience Plan (2024)",
+      "nationLinks": [
+        {
+          "text": "Hay and Carrathool Regional Drought Resilience Plan",
+          "url": "https://www.agriculture.gov.au/sites/default/files/documents/hay-and-carrathool-rdr-plan.pdf"
+        }
+      ]
+    },
+    "CENTRAL DARLING": {
+      "nation": "Barkandji (Baakandji) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Central Darling Shire Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Central Darling Shire Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Central Darling Shire Council — Acknowledgement of Country",
+          "url": "https://www.centraldarling.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "CESSNOCK": {
+      "nation": "Wonnarua, Awabakal and Darkinjung peoples",
+      "notes": "Council's own acknowledgement names all three groups jointly across the LGA.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Cessnock City Council's own operational and strategic plan documents, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Cessnock City Council — Community Strategic Plan",
+      "nationLinks": [
+        {
+          "text": "Cessnock City Council — Community Strategic Plan",
+          "url": "https://www.cessnock.nsw.gov.au/files/assets/public/v/1/hptrim/website-plans-strategies-do-not-change/2025_community-strategic-plan_updated-post-exhibition.pdf"
+        }
+      ]
+    },
+    "CLARENCE VALLEY": {
+      "nation": "Bundjalung, Gumbaynggirr and Yaegl peoples",
+      "notes": "Council's own acknowledgement names all three groups jointly across the LGA.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Clarence Valley Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Clarence Valley Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Clarence Valley Council — Acknowledgement of country",
+          "url": "https://www.clarence.nsw.gov.au/First-Nations/Acknowledgement-of-country"
+        }
+      ]
+    },
+    "COFFS HARBOUR": {
+      "nation": "Gumbaynggirr people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from City of Coffs Harbour's own annual reports and operational plans, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Coffs Harbour — Aboriginal culture",
+      "nationLinks": [
+        {
+          "text": "City of Coffs Harbour — Aboriginal culture",
+          "url": "https://www.coffsharbour.nsw.gov.au/Your-Council/About-our-city/Aboriginal-culture"
+        }
+      ]
+    },
+    "COONAMBLE": {
+      "nation": "Wailwan and Gamilaroi (Kamilaroi) peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Coonamble Shire Council's own website and council meeting minutes, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Coonamble Shire Council",
+      "nationLinks": [
+        {
+          "text": "Coonamble Shire Council",
+          "url": "https://www.coonambleshire.nsw.gov.au/"
+        }
+      ]
+    },
+    "COOTAMUNDRA-GUNDAGAI REGIONAL": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Cootamundra-Gundagai Regional Council's own meeting minutes, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Cootamundra-Gundagai Regional Council — Council meeting minutes",
+      "nationLinks": [
+        {
+          "text": "Cootamundra-Gundagai Regional Council — Minutes, 18 November 2025",
+          "url": "https://businesspapers.cgrc.nsw.gov.au/Open/2025/11/CO_20251118_MIN_2427.htm"
+        }
+      ]
+    },
+    "COWRA": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Cowra Council's own Village Action Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Cowra Council — Village Action Plan (2020)",
+      "nationLinks": [
+        {
+          "text": "Cowra Council — Village Action Plan 2020",
+          "url": "https://www.cowracouncil.com.au/files/assets/public/v/1/council/governance-and-transparency/environmental-services-plans-and-reports/policy-village-action-plan-adopted-council-meeting-24-august-2020-resolution-no.-2262020-current.pdf"
+        }
+      ]
+    },
+    "CUMBERLAND": {
+      "nation": "Darug (Dharug) Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Cumberland City Council's own published History and Land / Protocols pages, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Cumberland City Council — History and Land",
+      "nationLinks": [
+        {
+          "text": "Cumberland City Council — History and Land",
+          "url": "https://www.cumberland.nsw.gov.au/history-and-land"
+        }
+      ]
+    },
+    "DUBBO REGIONAL": {
+      "nation": "Wiradjuri people (locally the Tubba-Gah people)",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Dubbo Regional Council's own cultural collections site, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Dubbo Regional Council — Reveal cultural collections",
+      "nationLinks": [
+        {
+          "text": "Dubbo Regional Council — Reveal, cultural collections of the Dubbo region",
+          "url": "https://collections.dubbo.nsw.gov.au/explore"
+        }
+      ]
+    },
+    "DUNGOG": {
+      "nation": "Gringai, Geawegal (Gaewal), Wanaruah (Wonnarua) and Worimi peoples",
+      "notes": "Council's own acknowledgement names four groups jointly, reflecting overlap between Hunter Valley and Port Stephens coast cultural areas.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Dungog Shire Council's own Rural Lands Strategy and Local Housing Strategy, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Dungog Shire Council — Rural Lands Strategy",
+      "nationLinks": [
+        {
+          "text": "Dungog Shire Council — Rural Lands Strategy",
+          "url": "https://www.dungog.nsw.gov.au/files/assets/public/v/1/building/strategic-planning/dungog-shire-rural-lands-strategy.pdf"
+        }
+      ]
+    },
+    "EUROBODALLA": {
+      "nation": "Yuin Nation",
+      "notes": "Council signed a Local Agreement with the Northern Yuin people in 1998.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Eurobodalla Council's own published Aboriginal culture page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Eurobodalla Council — Aboriginal culture",
+      "nationLinks": [
+        {
+          "text": "Eurobodalla Council — Aboriginal culture",
+          "url": "https://www.esc.nsw.gov.au/community/Arts,-culture,-and-heritage/aboriginal-culture"
+        }
+      ]
+    },
+    "FAIRFIELD": {
+      "nation": "Cabrogal people of the Darug (Dharug) Nation",
+      "notes": "The Deerubbin and Gandangara Local Aboriginal Land Councils both have areas within Fairfield LGA.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Fairfield City Council's own published First Nations People page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Fairfield City Council — First Nations People",
+      "nationLinks": [
+        {
+          "text": "Fairfield City Council — First Nations People",
+          "url": "https://www.fairfieldcity.nsw.gov.au/Community/Our-People/First-Nations-People"
+        }
+      ]
+    },
+    "FORBES": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Forbes Shire Council's own published Wiradjuri Culture page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Forbes Shire Council — Wiradjuri Culture",
+      "nationLinks": [
+        {
+          "text": "Forbes Shire Council — Wiradjuri Culture",
+          "url": "https://www.forbes.nsw.gov.au/community/wiradjuri-culture"
+        }
+      ]
+    },
+    "GEORGES RIVER": {
+      "nation": "Bidjigal people of the Eora Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Georges River Council's own published Aboriginal and Torres Strait Islander Communities page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Georges River Council — Aboriginal and Torres Strait Islander Communities",
+      "nationLinks": [
+        {
+          "text": "Georges River Council — Aboriginal and Torres Strait Islander Communities",
+          "url": "https://www.georgesriver.nsw.gov.au/Community/Our-Community/Aboriginal-and-Torres-Strait-Islander-Communities"
+        }
+      ]
+    },
+    "GILGANDRA": {
+      "nation": "Wiradjuri, Gamilaraay (Kamilaroi) and Wailwan peoples",
+      "notes": "Council's own material describes Gilgandra as a traditional meeting place of these three nations — do not reduce to a single name.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Gilgandra Shire Council's own Community Engagement Strategy and Community Strategic Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Gilgandra Shire Council — Community Engagement Strategy",
+      "nationLinks": [
+        {
+          "text": "Gilgandra Shire Council — Community Engagement Strategy",
+          "url": "https://www.gilgandra.nsw.gov.au/files/sharedassets/public/v/1/gsc_community_engagement_strategy_2025.pdf"
+        }
+      ]
+    },
+    "GLEN INNES SEVERN": {
+      "nation": "Ngarabul (Ngarabal) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Glen Innes Severn Council's own dedicated Acknowledgement page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Glen Innes Severn Council — Acknowledgement",
+      "nationLinks": [
+        {
+          "text": "Glen Innes Severn Council — Acknowledgement",
+          "url": "https://www.gisc.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement"
+        }
+      ]
+    },
+    "GRIFFITH": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Griffith City Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Griffith City Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Griffith City Council — Acknowledgement of Country",
+          "url": "https://www.griffith.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "GUNNEDAH": {
+      "nation": "Kamilaroi (Gamilaraay) Nation",
+      "notes": "Locally also referred to as the Gomeroi people.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Gunnedah Shire Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Gunnedah Shire Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Gunnedah Shire Council — Acknowledgement of Country",
+          "url": "https://www.gunnedah.nsw.gov.au/index.php/council/council-information/acknowledgement-of-country"
+        }
+      ]
+    },
+    "GWYDIR": {
+      "nation": "Kamilaroi (Gamilaroi) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Gwydir Shire Council's own Annual Report, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Gwydir Shire Council — Annual Report 2022–23",
+      "nationLinks": [
+        {
+          "text": "Gwydir Shire Council — Annual Report 2022-23",
+          "url": "https://www.gwydir.nsw.gov.au/files/sharedassets/public/v/1/council/governance/ipampr/gwydir-shire-council-annual-report-2023.pdf"
+        }
+      ]
+    },
+    "HAWKESBURY": {
+      "nation": "Dharug (Darug) and Darkinjung peoples",
+      "notes": "Predominantly Dharug Country, with Darkinjung Country in the Colo Heights and St Albans areas.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Hawkesbury City Council's own published material, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Hawkesbury City Council",
+      "nationLinks": [
+        {
+          "text": "Hawkesbury City Council — About Us",
+          "url": "https://www.hawkesbury.nsw.gov.au/your-council/about-council/about-us"
+        }
+      ]
+    },
+    "HAY": {
+      "nation": "Wiradjuri and Nari Nari peoples",
+      "notes": "AIATSIS maps the shire as shared by three nations — Wiradjuri, Nari Nari and Yitha Yitha.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Hay Shire Council's own Aboriginal Heritage page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Hay Shire Council — Aboriginal Heritage",
+      "nationLinks": [
+        {
+          "text": "Hay Shire Council — Aboriginal Heritage",
+          "url": "https://www.hay.nsw.gov.au/About-Our-Region/Aboriginal-Heritage"
+        }
+      ]
+    },
+    "HILLTOPS": {
+      "nation": "Wiradjuri and Ngunnawal peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Hilltops Council's own Community Strategic Plan and Annual Reports, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Hilltops Council — Community Strategic Plan 2042",
+      "nationLinks": [
+        {
+          "text": "Hilltops Council — Community Strategic Plan 2042",
+          "url": "https://www.hilltops.nsw.gov.au/wp-content/uploads/2025/08/Hilltops-Community-Strategic-Plan-2042.pdf"
+        }
+      ]
+    },
+    "HORNSBY": {
+      "nation": "Darug (Dharug) and GuriNgai peoples",
+      "notes": "Council formally adopted this wording following recommendation by its Aboriginal and Torres Strait Islander Consultative Committee.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Hornsby Shire Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Hornsby Shire Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Hornsby Shire Council — Acknowledgement of Country",
+          "url": "https://www.hornsby.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "HUNTERS HILL": {
+      "nation": "Wallumedegal people of the Eora Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Hunter's Hill Council's own Indigenous Heritage page and Acknowledgement of Country document, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Hunter's Hill Council — Indigenous Heritage",
+      "nationLinks": [
+        {
+          "text": "Hunter's Hill Council — Indigenous Heritage",
+          "url": "https://www.huntershill.nsw.gov.au/Community/Art-and-Culture/Indigenous-Heritage"
+        }
+      ]
+    },
+    "INNER WEST": {
+      "nation": "Gadigal and Wangal peoples of the Eora Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Inner West Council's own published Traditional Custodians page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Inner West Council — Traditional custodians and how to acknowledge",
+      "nationLinks": [
+        {
+          "text": "Inner West Council — Traditional custodians and how to acknowledge",
+          "url": "https://www.innerwest.nsw.gov.au/aboriginal-community/traditional-custodians-and-how-acknowledge"
+        }
+      ]
+    },
+    "JUNEE": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Junee Shire Council's own business papers and delivery program, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Junee Shire Council — Combined Delivery Program and Operational Plan",
+      "nationLinks": [
+        {
+          "text": "Junee Shire Council — Combined Delivery Program and Operational Plan 2023-2027",
+          "url": "https://www.junee.nsw.gov.au/wp-content/uploads/2023/06/ADOPTED_COMBINED_DPOP_2023-2027.pdf"
+        }
+      ]
+    },
+    "KEMPSEY": {
+      "nation": "Dunghutti (Thunggutti) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Kempsey Shire Council's own published Aboriginal culture & communities page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Kempsey Shire Council — Aboriginal culture & communities",
+      "nationLinks": [
+        {
+          "text": "Kempsey Shire Council — Aboriginal culture & communities",
+          "url": "https://www.kempsey.nsw.gov.au/Your-Valley/Aboriginal-culture-communities"
+        }
+      ]
+    },
+    "KIAMA": {
+      "nation": "Wodi Wodi people, on Dharawal Country",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Kiama Council's own First Nations Community page and Annual Report, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Kiama Council — First Nations Community",
+      "nationLinks": [
+        {
+          "text": "Kiama Council — First Nations Community",
+          "url": "https://www.kiama.nsw.gov.au/Services/People-and-community/First-Nations-Community"
+        }
+      ]
+    },
+    "LACHLAN": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Lachlan Shire Council's own Annual Report and Delivery Program, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Lachlan Shire Council — Annual Report 2021-22",
+      "nationLinks": [
+        {
+          "text": "Lachlan Shire Council — Annual Report 2021-22",
+          "url": "https://www.lachlan.nsw.gov.au/files/assets/public/v/1/council/plans-and-strategies/2021-2022-annual-report.pdf"
+        }
+      ]
+    },
+    "LAKE MACQUARIE": {
+      "nation": "Awabakal people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Lake Macquarie City Council's own dedicated Acknowledgement of and Welcome to Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Lake Macquarie City Council — Acknowledgement of and Welcome to Country",
+      "nationLinks": [
+        {
+          "text": "Lake Macquarie City Council — Acknowledgement of and Welcome to Country",
+          "url": "https://www.lakemac.com.au/For-residents/Community/Aboriginal-and-Torres-Strait-Islander-people/Acknowledgement-of-and-Welcome-to-Country"
+        }
+      ]
+    },
+    "LANE COVE": {
+      "nation": "Cameraygal (Cammeraygal) people",
+      "notes": "One of seven clans of the wider Gai-mariagal people on the northern shores of Port Jackson.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Lane Cove Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Lane Cove Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Lane Cove Council — Acknowledgement of Country",
+          "url": "https://www.lanecove.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "LEETON": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Leeton Shire Council's own dedicated Acknowledgement page and strategic plans, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Leeton Shire Council — Acknowledgement",
+      "nationLinks": [
+        {
+          "text": "Leeton Shire Council — Acknowledgement",
+          "url": "https://www.leeton.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement"
+        }
+      ]
+    },
+    "LISMORE": {
+      "nation": "Widjabul Wia-bal people of the Bundjalung Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Lismore City Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Lismore City Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Lismore City Council — Acknowledgement of Country",
+          "url": "https://www.lismore.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "LITHGOW CITY": {
+      "nation": "Wiradjuri Nation",
+      "notes": "Lithgow LGA lies almost wholly within Wiradjuri Country, with Gundungurra Country to the south and Darug Country to the east.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Lithgow City Council's own Aboriginal Community page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Lithgow City Council — Aboriginal Community",
+      "nationLinks": [
+        {
+          "text": "Lithgow City Council — Aboriginal Community",
+          "url": "https://council.lithgow.com/community/aboriginal-community/"
+        }
+      ]
+    },
+    "LIVERPOOL PLAINS": {
+      "nation": "Kamilaroi (Gamilaraay) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Liverpool Plains Shire Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Liverpool Plains Shire Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Liverpool Plains Shire Council — Acknowledgement of Country",
+          "url": "https://www.liverpoolplains.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "LOCKHART": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Lockhart Shire Council's own Business Paper, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Lockhart Shire Council — Business Paper, Ordinary Meeting",
+      "nationLinks": [
+        {
+          "text": "Lockhart Shire Council — Business Paper, Ordinary Meeting 18 May 2026",
+          "url": "https://lockhart.nsw.gov.au/wp-content/uploads/2026/05/Business-Paper-Ordinary-Meeting-18-May-2026.pdf"
+        }
+      ]
+    },
+    "MAITLAND": {
+      "nation": "Wonnarua people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Maitland City Council's own published material, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Maitland City Council",
+      "nationLinks": [
+        {
+          "text": "Maitland City Council",
+          "url": "https://www.maitland.nsw.gov.au/"
+        }
+      ]
+    },
+    "MID-COAST": {
+      "nation": "Biripi people (north) and Worimi people (south and west)",
+      "notes": "Both are Gathang-speaking peoples; Council's own framing splits the LGA geographically between the two.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from MidCoast Council's own Aboriginal Action Plan and community engagement material, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "MidCoast Council — Aboriginal Action Plan",
+      "nationLinks": [
+        {
+          "text": "MidCoast Council — Have Your Say",
+          "url": "https://haveyoursay.midcoast.nsw.gov.au/"
+        }
+      ]
+    },
+    "MOREE PLAINS": {
+      "nation": "Kamilaroi (Gamilaroi) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Moree Plains Shire Council's own published Shire Heritage page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Moree Plains Shire Council — Shire Heritage",
+      "nationLinks": [
+        {
+          "text": "Moree Plains Shire Council — Shire Heritage",
+          "url": "https://www.mpsc.nsw.gov.au/28-past-present-and-future-of-the-shire/21-shire-heritage.html"
+        }
+      ]
+    },
+    "MOSMAN": {
+      "nation": "Borogegal and Cammeraygal peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Mosman Council's own published material, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Mosman Council",
+      "nationLinks": [
+        {
+          "text": "Mosman Council",
+          "url": "https://www.mosman.nsw.gov.au/"
+        }
+      ]
+    },
+    "MURRAY RIVER": {
+      "nation": "Yorta Yorta, Bangerang, Wamba Wamba and Barapa Barapa peoples",
+      "notes": "Council's own acknowledgement names four groups jointly across the LGA.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Murray River Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Murray River Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Murray River Council — Acknowledgement of Country",
+          "url": "https://www.murrayriver.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "MUSWELLBROOK": {
+      "nation": "Wonnarua (Wanaruah) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Muswellbrook Shire Council's own About Muswellbrook Shire page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Muswellbrook Shire Council — About Muswellbrook Shire",
+      "nationLinks": [
+        {
+          "text": "Muswellbrook Shire Council — About Muswellbrook Shire",
+          "url": "https://www.muswellbrook.nsw.gov.au/about-council/about-muswellbrook-shire"
+        }
+      ]
+    },
+    "NAMBUCCA VALLEY": {
+      "nation": "Gumbaynggirr people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Nambucca Valley Council's own meeting agendas, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Nambucca Valley Council — Council meeting agendas",
+      "nationLinks": [
+        {
+          "text": "Nambucca Valley Council — Ordinary Council Meeting Agenda, 31 August 2023",
+          "url": "https://nambucca.infocouncil.biz/Open/2023/08/CO_31082023_AGN_1331.PDF"
+        }
+      ]
+    },
+    "NARRABRI": {
+      "nation": "Gamilaraay (Gamilaroi / Gomeroi / Kamilaroi) Nation",
+      "notes": "Council's own wording explicitly notes the varying spellings of this Nation's name.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Narrabri Shire Council's own dedicated Acknowledgement page and Operational Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Narrabri Shire Council — Acknowledgement",
+      "nationLinks": [
+        {
+          "text": "Narrabri Shire Council — Acknowledgement",
+          "url": "https://www.narrabri.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement"
+        }
+      ]
+    },
+    "NARRANDERA": {
+      "nation": "Wiradjuri people",
+      "notes": "Locally the Narrungdera clan.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Narrandera Shire Council's own dedicated Wiradjuri People page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Narrandera Shire Council — Wiradjuri People",
+      "nationLinks": [
+        {
+          "text": "Narrandera Shire Council — Wiradjuri People",
+          "url": "https://www.narrandera.nsw.gov.au/community/our-people/wiradjuri-people"
+        }
+      ]
+    },
+    "NARROMINE": {
+      "nation": "Wiradjuri people",
+      "notes": "Inferred from strong regional consensus (all neighbouring LGAs — Narrandera, Parkes, Dubbo, Gilgandra — confirm Wiradjuri); Council's own published acknowledgement wording found does not explicitly name the group.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Narromine Shire Council's own Community Engagement Strategy, researched 2026-06-21 via web search — lower confidence than most entries since the exact council quote found does not itself name Wiradjuri. Confirmed by the project owner on 2026-06-22.",
+      "source": "Narromine Shire Council — Community Engagement Strategy 2024",
+      "nationLinks": [
+        {
+          "text": "Narromine Shire Council — Community Engagement Strategy 2024",
+          "url": "https://www.narromine.nsw.gov.au/__media_downloads/2024%20adopted%20Community%20Engagement%20Strategy%20for%20publication.pdf?downloadable=1"
+        }
+      ]
+    },
+    "NEWCASTLE": {
+      "nation": "Awabakal and Worimi peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from City of Newcastle's own published Aboriginal Culture page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Newcastle — Aboriginal Culture",
+      "nationLinks": [
+        {
+          "text": "City of Newcastle — Aboriginal Culture",
+          "url": "https://newcastle.nsw.gov.au/explore/history-and-heritage/aboriginal-culture"
+        }
+      ]
+    },
+    "NORTH SYDNEY": {
+      "nation": "Cammeraygal people",
+      "notes": "Recognised on Council's own emblem, with a commemorative monument erected in 1999.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from North Sydney Council's own meeting records and public monument, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "North Sydney Council — Council meeting agenda",
+      "nationLinks": [
+        {
+          "text": "North Sydney Council — 3746th Council Meeting Agenda, 28 June 2021",
+          "url": "https://www.northsydney.nsw.gov.au/ecm/download/document-9600001"
+        }
+      ]
+    },
+    "NORTHERN BEACHES": {
+      "nation": "Gayamaygal and Garigal peoples",
+      "notes": "Council's current wording uses these clan names directly rather than \"Guringai\" — a term coined by a non-Aboriginal ethnographer in 1892 and now considered historically contested.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Northern Beaches Council's own published material, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Northern Beaches Council — Our diverse community",
+      "nationLinks": [
+        {
+          "text": "Northern Beaches Council — Our diverse community",
+          "url": "https://www.northernbeaches.nsw.gov.au/community/our-diverse-community"
+        }
+      ]
+    },
+    "ORANGE": {
+      "nation": "Wiradjuri Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Orange City Council's own Aboriginal Services page and meeting agendas, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Orange City Council — Aboriginal Services",
+      "nationLinks": [
+        {
+          "text": "Orange City Council — Aboriginal Services",
+          "url": "https://www.orange.nsw.gov.au/aboriginal-services/"
+        }
+      ]
+    },
+    "PARKES": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Parkes Shire Council's own dedicated Acknowledgement page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Parkes Shire Council — Acknowledgement",
+      "nationLinks": [
+        {
+          "text": "Parkes Shire Council — Acknowledgement",
+          "url": "https://www.parkes.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement"
+        }
+      ]
+    },
+    "PENRITH": {
+      "nation": "Darug (Dharug) and Gundungurra peoples",
+      "notes": "Council has been reviewing its formal Statement of Recognition — wording may be updated.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Penrith City Council's own published material, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Penrith City Council",
+      "nationLinks": [
+        {
+          "text": "Penrith City Council — Your Say Penrith, First Nations",
+          "url": "https://yoursaypenrith.com.au/firstnationsEOI"
+        }
+      ]
+    },
+    "PORT MACQUARIE-HASTINGS": {
+      "nation": "Birpai (Biripi) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Port Macquarie-Hastings Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Port Macquarie-Hastings Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Port Macquarie-Hastings Council — Acknowledgement of Country",
+          "url": "https://www.pmhc.nsw.gov.au/System-Pages/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "PORT STEPHENS": {
+      "nation": "Worimi people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Port Stephens Council's own meeting agenda, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Port Stephens Council — Ordinary Council Meeting Agenda",
+      "nationLinks": [
+        {
+          "text": "Port Stephens Council — Ordinary Council Meeting Agenda, 12 March 2024",
+          "url": "https://www.portstephens.nsw.gov.au/__data/assets/pdf_file/0005/145706/12-March-2024-Ordinary-Council-Agenda.pdf"
+        }
+      ]
+    },
+    "RANDWICK": {
+      "nation": "Gadigal and Bidjigal peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Randwick City Council's own published Aboriginal culture & customs page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Randwick City Council — Aboriginal culture & customs",
+      "nationLinks": [
+        {
+          "text": "Randwick City Council — Aboriginal culture & customs",
+          "url": "https://www.randwick.nsw.gov.au/community/aboriginal-and-torres-strait-islander/aboriginal-culture-and-customs"
+        }
+      ]
+    },
+    "RICHMOND VALLEY": {
+      "nation": "Bundjalung Nation",
+      "notes": "Locally including the Galibal, Banjalang and Birihn peoples — one of NSW's largest Aboriginal nations, comprising an estimated 20 language groups.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Richmond Valley Council's own meeting agendas, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Richmond Valley Council — Aboriginal Community",
+      "nationLinks": [
+        {
+          "text": "Richmond Valley Council — Aboriginal Community",
+          "url": "https://richmondvalley.nsw.gov.au/community-services/our-communities/aboriginal-community/"
+        }
+      ]
+    },
+    "RYDE": {
+      "nation": "Wallumedegal (Wattamattagal) clan of the Darug (Dharug) Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from City of Ryde's own Delivery Program and Operational Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "City of Ryde — Delivery Program 2025-2029",
+      "nationLinks": [
+        {
+          "text": "City of Ryde — Aboriginal and Torres Strait Islander communities",
+          "url": "https://www.ryde.nsw.gov.au/Community/Aboriginal-and-Torres-Strait-Islander-communities"
+        }
+      ]
+    },
+    "SHELLHARBOUR": {
+      "nation": "Wodi Wodi and Elouera peoples, of the Dharawal Nation",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Shellharbour City Council's own Welcome/Acknowledgement of Country and Elders Protocol document, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Shellharbour City Council — Welcome/Acknowledgement of Country and Elders Protocol",
+      "nationLinks": [
+        {
+          "text": "Shellharbour City Council — Welcome/Acknowledgement of Country and Elders Protocol",
+          "url": "https://cdn.shellharbour.nsw.gov.au/sites/default/files/Living_here_documents/SCC_Welcome_to_Country_Protocol.pdf"
+        }
+      ]
+    },
+    "SINGLETON": {
+      "nation": "Wanaruah (Wonnarua) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Singleton Council's own meeting agenda, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Singleton Council — Meeting agenda",
+      "nationLinks": [
+        {
+          "text": "Singleton Council — Agenda of Meeting",
+          "url": "https://singleton.infocouncil.biz/Open/2024/10/CM_22102024_AGN_AT.PDF"
+        }
+      ]
+    },
+    "SNOWY MONARO REGIONAL": {
+      "nation": "Ngarigo, Walgalu, Bidhawal and Southern Ngunnawal peoples",
+      "notes": "Council's own acknowledgement names four groups jointly across this large LGA; Ngarigo are custodians of most of the region.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Snowy Monaro Regional Council's own published Aboriginal Communities page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Snowy Monaro Regional Council — Aboriginal Communities",
+      "nationLinks": [
+        {
+          "text": "Snowy Monaro Regional Council — Aboriginal Communities",
+          "url": "https://www.snowymonaro.nsw.gov.au/Community/Aboriginal-Communities"
+        }
+      ]
+    },
+    "SNOWY VALLEYS": {
+      "nation": "Wiradjuri people (west) and Ngarigo / Walgalu peoples (east)",
+      "notes": "The LGA spans the traditional boundary between Wiradjuri Country and Ngarigo/Walgalu Country; do not reduce to a single name.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Snowy Valleys Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Snowy Valleys Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Snowy Valleys Council — Acknowledgement of Country",
+          "url": "https://www.snowyvalleys.nsw.gov.au/I-Want-To/Contact-Council/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "STRATHFIELD": {
+      "nation": "Wangal clan of the Darug (Dharug) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Strathfield Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Strathfield Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Strathfield Council — Acknowledgement of Country",
+          "url": "https://www.strathfield.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "SUTHERLAND SHIRE": {
+      "nation": "Dharawal people (locally the Gweagal and Norongerragal clans)",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Sutherland Shire Council's own dedicated Acknowledgement to Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Sutherland Shire Council — Acknowledgement to Country",
+      "nationLinks": [
+        {
+          "text": "Sutherland Shire Council — Acknowledgement to Country",
+          "url": "https://www.sutherlandshire.nsw.gov.au/Community/Arts-and-Culture/Aboriginal-and-Torres-Strait-Islander-Communities/Acknowledgement-to-Country"
+        }
+      ]
+    },
+    "TAMWORTH REGIONAL": {
+      "nation": "Kamilaroi (Gomeroi) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Tamworth Regional Council's own published Aboriginal Community page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Tamworth Regional Council — Aboriginal Community",
+      "nationLinks": [
+        {
+          "text": "Tamworth Regional Council — Aboriginal Community",
+          "url": "https://www.tamworth.nsw.gov.au/live/community/aboriginal-community"
+        }
+      ]
+    },
+    "TEMORA": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from the joint Temora and Bland Regional Drought Resilience Plan, hosted on Temora Shire Council's own site, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Temora Shire Council — Temora and Bland Regional Drought Resilience Plan",
+      "nationLinks": [
+        {
+          "text": "Temora Shire Council — Temora and Bland Regional Drought Resilience Plan",
+          "url": "https://www.temora.nsw.gov.au/files/assets/public/v/1/policies/community/cd4742-temora-bland-rdrp_summary-booklet-v5-wcag.pdf"
+        }
+      ]
+    },
+    "TENTERFIELD": {
+      "nation": "Ngarabal, Jukembal, Bundjalung, Kamilaroi, Githabul and Wahlubul peoples",
+      "notes": "Council's own acknowledgement names six groups as custodians of various parts of the Shire — do not reduce to a single name.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Tenterfield Shire Council's own dedicated Aboriginal Acknowledgement page and Community Strategic Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Tenterfield Shire Council — Aboriginal Acknowledgement",
+      "nationLinks": [
+        {
+          "text": "Tenterfield Shire Council — Aboriginal Acknowledgement",
+          "url": "https://www.tenterfield.nsw.gov.au/community/aboriginal-torres-strait-islander-other-communities/aboriginal-community/aboriginal-acknowledgment"
+        }
+      ]
+    },
+    "THE HILLS SHIRE": {
+      "nation": "Dharug (Darug) people",
+      "notes": "Council voted down a motion to formally acknowledge Traditional Owners at meetings in 2016; this wording reflects its current, since-adopted Acknowledgement of Country.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from reporting on The Hills Shire Council's current Acknowledgement of Country, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim from Council's own site). Confirmed by the project owner on 2026-06-22.",
+      "source": "The Hills Shire Council",
+      "nationLinks": [
+        {
+          "text": "Mirage News — Hills Shire Council Advances First Nations Honour Proposal",
+          "url": "https://www.miragenews.com/hills-shire-council-advances-first-nations-1142570/"
+        }
+      ]
+    },
+    "TWEED": {
+      "nation": "Bundjalung Nation — Ngandowal and Minyungbal speaking peoples (Goodjinburra, Tul-gi-gin and Moorung-Moobah clans)",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Tweed Shire Council's own published Aboriginal Acknowledgement material, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Tweed Shire Council — Aboriginal Acknowledgement",
+      "nationLinks": [
+        {
+          "text": "Tweed Shire Council — Statement of acknowledgement of the Bundjalung Aboriginal people",
+          "url": "https://business.thetweed.com.au/introduction/aboriginal-acknowledgement"
+        }
+      ]
+    },
+    "UPPER HUNTER": {
+      "nation": "Wonnarua (Wanarruwa) people",
+      "notes": "Council's acknowledgement is published in both English and Wonnarua language.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Upper Hunter Shire Council's own published material, researched 2026-06-21 via web search (not directly re-fetched/quoted verbatim). Confirmed by the project owner on 2026-06-22.",
+      "source": "Upper Hunter Shire Council",
+      "nationLinks": [
+        {
+          "text": "Upper Hunter Shire Council",
+          "url": "https://upperhunter.nsw.gov.au/"
+        }
+      ]
+    },
+    "URALLA": {
+      "nation": "Anaiwan and Kamilaroi peoples",
+      "notes": "Sourced from a joint Armidale Regional and Uralla Shire Councils acknowledgement, not an Uralla-only statement.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from the joint Armidale Regional and Uralla Shire Regional Drought Resilience Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Armidale Regional and Uralla Shire Councils — Regional Drought Resilience Plan",
+      "nationLinks": [
+        {
+          "text": "Armidale Regional and Uralla Shire Regional Drought Resilience Plan",
+          "url": "https://www.agriculture.gov.au/sites/default/files/documents/armidale-uralla-rdr-plan.pdf"
+        }
+      ]
+    },
+    "WAGGA WAGGA": {
+      "nation": "Wiradjuri (Wiradyuri) people",
+      "notes": "Council's Acknowledgement was developed in consultation with Wiradyuri Elder Uncle Stan Grant Senior and is published bilingually.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Wagga Wagga City Council's own published Wiradjuri and First Nations page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Wagga Wagga City Council — Wiradjuri and First Nations",
+      "nationLinks": [
+        {
+          "text": "Wagga Wagga City Council — Wiradjuri and First Nations",
+          "url": "https://wagga.nsw.gov.au/services/support-services/aboriginal-services"
+        }
+      ]
+    },
+    "WALCHA": {
+      "nation": "Anaiwan (Anewan) people, with connection to the Dunghutti (Djangadi) people",
+      "notes": "Sources gave two slightly different framings; treat as indicative of both groups' connection to the area.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Walcha Council's own Strategic Heritage Action Plan, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Walcha Council — Strategic Heritage Action Plan",
+      "nationLinks": [
+        {
+          "text": "Walcha Council — Strategic Heritage Action Plan",
+          "url": "https://walcha.nsw.gov.au/wp-content/uploads/2022/12/Walcha-Strategic-Heritage-Action-Plan-Adopted-by-Council-June-2019.pdf"
+        }
+      ]
+    },
+    "WALGETT": {
+      "nation": "Gamilaraay (Gamilaroi), Yuwaalaraay and Yuwaalayaay peoples",
+      "notes": "Council's own acknowledgement names three groups jointly, all of the wider Gamilaroi/Gomeroi Nation.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Walgett Shire Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Walgett Shire Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Walgett Shire Council — Acknowledgement of Country",
+          "url": "https://www.walgett.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    },
+    "WAVERLEY": {
+      "nation": "Bidiagal, Birrabirragal and Gadigal peoples",
+      "notes": "Council's own acknowledgement names three groups jointly across the Eastern Suburbs coastal area.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Waverley Council's own published Aboriginal & Torres Strait Islander page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Waverley Council — Aboriginal & Torres Strait Islander people",
+      "nationLinks": [
+        {
+          "text": "Waverley Council — Aboriginal & Torres Strait Islander people",
+          "url": "https://www.waverley.nsw.gov.au/community/aboriginal_and_torres_strait_islander_people"
+        }
+      ]
+    },
+    "WEDDIN": {
+      "nation": "Wiradjuri people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Weddin Shire Council's own meeting minutes, consistent across 2021-2026, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Weddin Shire Council — Council meeting minutes",
+      "nationLinks": [
+        {
+          "text": "Weddin Shire Council — Agenda, Ordinary Council Meeting 18 June 2026",
+          "url": "https://www.weddin.nsw.gov.au/files/assets/public/v/1/council/council-meetings/meeting-documents/2026/20260618-agenda-ordinary-council-meeting-18-june-2026.pdf"
+        }
+      ]
+    },
+    "WILLOUGHBY": {
+      "nation": "Gamaragal people",
+      "notes": "Sometimes spelt Cammeraygal elsewhere — Council's own wording uses \"Gamaragal\". Part of the wider Eora Nation.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Willoughby City Council's own published Aboriginal and Torres Strait Islanders page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Willoughby City Council — Aboriginal and Torres Strait Islanders",
+      "nationLinks": [
+        {
+          "text": "Willoughby City Council — Aboriginal and Torres Strait Islanders",
+          "url": "https://www.willoughby.nsw.gov.au/Community/Aboriginal-and-Torres-Strait-Islanders"
+        }
+      ]
+    },
+    "WINGECARRIBEE": {
+      "nation": "Gundungurra and Dharawal (Tharawal) peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Wingecarribee Shire Council's own published Aboriginal Community pages and draft Acknowledgement of Country Policy, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Wingecarribee Shire Council — Aboriginal and Torres Strait Islander Community",
+      "nationLinks": [
+        {
+          "text": "Wingecarribee Shire Council — Aboriginal and Torres Strait Islander Community",
+          "url": "https://www.wsc.nsw.gov.au/Places/Our-Community/Aboriginal-and-Torres-Strait-Islander-Community"
+        }
+      ]
+    },
+    "WOLLONDILLY": {
+      "nation": "Dharawal and Gundungurra peoples",
+      "notes": "Council's page also acknowledges the Dharawal and Gundungurra peoples killed in the Appin Massacre of 17 April 1816, and its collaboration with the Tharawal Local Aboriginal Land Council.",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Wollondilly Shire Council's own dedicated Acknowledgement of Country & Our Aboriginal History page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Wollondilly Shire Council — Acknowledgement of Country & Our Aboriginal History",
+      "nationLinks": [
+        {
+          "text": "Wollondilly Shire Council — Acknowledgement of Country & Our Aboriginal History",
+          "url": "https://www.wollondilly.nsw.gov.au/council/about-us/acknowledgement-of-country-our-aboriginal-history"
+        }
+      ]
+    },
+    "WOLLONGONG": {
+      "nation": "Dharawal (Tharawal/Thuruwal) people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Wollongong City Council's own Welcome to and Acknowledgement of Country Protocol policy document, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Wollongong City Council — Welcome to and Acknowledgement of Country Protocol",
+      "nationLinks": [
+        {
+          "text": "Wollongong City Council — Welcome to and Acknowledgement of Country Protocol",
+          "url": "https://www.wollongong.nsw.gov.au/__data/assets/pdf_file/0015/10914/Welcome-to-and-Acknowledgement-of-Country-Protocol-Management-Policy-March-2021.pdf"
+        }
+      ]
+    },
+    "WOOLLAHRA": {
+      "nation": "Gadigal and Birrabirragal peoples",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Woollahra Municipal Council's own meeting minutes, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Woollahra Municipal Council — Council meeting minutes",
+      "nationLinks": [
+        {
+          "text": "Woollahra Municipal Council — Ordinary Council Meeting Minutes, 12 August 2024",
+          "url": "https://woollahra.infocouncil.biz/Open/2024/08/CO_20240812_MIN.PDF"
+        }
+      ]
+    },
+    "YASS VALLEY": {
+      "nation": "Ngunnawal people",
+      "notes": "",
+      "reviewed": "2026-06-22",
+      "sourcedBy": "Drafted from Yass Valley Council's own dedicated Acknowledgement of Country page, researched 2026-06-21 via web search. Confirmed by the project owner on 2026-06-22.",
+      "source": "Yass Valley Council — Acknowledgement of Country",
+      "nationLinks": [
+        {
+          "text": "Yass Valley Council — Acknowledgement of Country",
+          "url": "https://www.yassvalley.nsw.gov.au/Site-Footer/Footer-Widgets/Acknowledgement-of-Country"
+        }
+      ]
+    }
+  }
+}

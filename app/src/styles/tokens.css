@@ -1,0 +1,77 @@
+/* Design tokens — derived from DESIGN-together.ai.md
+   App UI = Together AI design language (dark bands, mono-caps eyebrows, gradient chrome).
+   Report/PDF = same Together AI design language (see report.css). */
+
+:root {
+  /* Brand / surface */
+  --ink: #000000;
+  --canvas: #ffffff;
+  --canvas-dark: #010120;
+  --surface-dark-soft: #313641;
+  --hairline-on-dark: #26263a;
+  --on-dark: #ffffff;
+  --body: #6b6b6b;
+  --body-muted: #959494;
+  --hairline: #ebebeb;
+
+  /* Brand gradient (single decorative object — do not reorder / recolour) */
+  --accent-orange: #fc4c02;
+  --accent-magenta: #ef2cc1;
+  --accent-periwinkle: #bdbbff;
+  --accent-mint: #c8f6f9;
+  --brand-gradient: linear-gradient(
+    100deg,
+    var(--accent-orange) 0%,
+    var(--accent-magenta) 52%,
+    var(--accent-periwinkle) 100%
+  );
+
+  /* Provenance chip colours (functional, kept muted) */
+  --chip-official-bg: #eef4ff;
+  --chip-official-ink: #1d4ed8;
+  --chip-curated-bg: #fef3e7;
+  --chip-curated-ink: #b45309;
+  --chip-link-bg: #f1f1f1;
+  --chip-link-ink: #6b6b6b;
+  --chip-na-bg: #f6f6f6;
+  --chip-na-ink: #9a9a9a;
+
+  /* Radius */
+  --r-xs: 3.25px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-full: 9999px;
+
+  /* Spacing (4px base) */
+  --s-xxs: 2px;
+  --s-xs: 4px;
+  --s-sm: 8px;
+  --s-md: 12px;
+  --s-lg: 16px;
+  --s-xl: 20px;
+  --s-2xl: 24px;
+  --s-3xl: 32px;
+
+  /* Type */
+  --font-display: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* Mono-caps eyebrow / label helper */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 11px;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--body-muted);
+}
+
+.mono-btn {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08px;
+  text-transform: uppercase;
+}

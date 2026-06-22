@@ -1,0 +1,232 @@
+/* Report / PDF — Together AI design language (DESIGN-together.ai.md).
+   Same system as the app: dark cover band with the orange→magenta→periwinkle
+   gradient ribbon as the only chrome, white content pages, mono-caps labels,
+   sentence-case display headlines, hairline rules, 4px radius, no shadows.
+   Rendered off-screen and captured to PDF (A4 @ ~96dpi → 794 x 1123 px).
+   Brand tokens come from tokens.css (imported before this file). */
+
+.report-root {
+  position: absolute;
+  left: -10000px;
+  top: 0;
+  width: 794px;
+  font-family: var(--font-display);
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+.report-page {
+  width: 794px;
+  min-height: 1123px;
+  padding: 64px 60px;
+  background: var(--canvas);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Cover — dark band (hero-band-dark posture) ──────────── */
+.report-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--canvas-dark);
+  color: var(--on-dark);
+}
+.report-cover .cover-band {
+  height: 10px;
+  width: 200px;
+  border-radius: var(--r-full);
+  background: var(--brand-gradient);
+}
+.report-cover .cover-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--accent-mint);
+  margin-top: 28px;
+}
+.report-cover h1 {
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1.06;
+  letter-spacing: -1.2px;
+  margin: 14px 0 0;
+  max-width: 580px;
+  color: var(--on-dark);
+}
+.report-cover .cover-sub {
+  font-size: 16px;
+  color: #c9c9da;
+  margin-top: 16px;
+  max-width: 520px;
+  line-height: 1.5;
+  letter-spacing: -0.16px;
+}
+.report-cover .cover-map {
+  margin-top: 40px;
+  border: 1px solid var(--hairline-on-dark);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--surface-dark-soft);
+}
+.report-cover .cover-map img { width: 100%; display: block; }
+.report-cover .cover-map-attrib {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2px;
+  color: var(--body-muted);
+  padding: 5px 8px;
+  background: var(--canvas-dark);
+  border-top: 1px solid var(--hairline-on-dark);
+}
+
+/* Engagement / next-steps banner (Country section) */
+.report-banner {
+  background: #fef3e7;
+  border: 1px solid #f0d6b3;
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #7a4a08;
+  margin: 0 0 16px;
+}
+.report-cover .cover-meta {
+  display: flex;
+  gap: 48px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline-on-dark);
+}
+.report-cover .cover-meta .k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--body-muted);
+}
+.report-cover .cover-meta .v {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 4px;
+  color: var(--on-dark);
+}
+.report-cover .cover-foot {
+  font-size: 12px;
+  color: #9a9ab0;
+  line-height: 1.5;
+}
+
+/* ── Content — white pages ───────────────────────────────── */
+.report-page h2 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--body-muted);
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hairline);
+}
+.report-page h2:not(:first-of-type) { margin-top: 34px; }
+
+.report-field { margin-bottom: 16px; }
+.report-field .rf-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--body-muted);
+}
+.report-field .rf-value {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 3px;
+  letter-spacing: -0.16px;
+  color: var(--ink);
+}
+.report-field .rf-value.muted { color: var(--body); font-weight: 400; }
+.report-field .rf-source {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--body-muted);
+  margin-top: 3px;
+  letter-spacing: 0.2px;
+}
+.report-field .rf-note {
+  font-size: 12px;
+  color: var(--body);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 32px;
+}
+
+.report-callout {
+  background: #f6f6f6;
+  border: 1px solid var(--hairline);
+  border-left: 2px solid var(--ink);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--body);
+  margin: 18px 0;
+}
+
+.report-citations { margin-top: 8px; }
+.report-citations li {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--body);
+  margin-bottom: 6px;
+  word-break: break-word;
+}
+
+.report-foot {
+  position: absolute;
+  bottom: 36px;
+  left: 60px;
+  right: 60px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--body-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--hairline);
+}
+
+/* simple diagram: orientation / scale strip */
+.report-diagram {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0 4px;
+}
+.report-diagram .tile {
+  flex: 1;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+  padding: 12px;
+  background: var(--canvas);
+}
+.report-diagram .tile .t-k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--body-muted);
+}
+.report-diagram .tile .t-v { font-size: 15px; font-weight: 500; margin-top: 4px; color: var(--ink); }
