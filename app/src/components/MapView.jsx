@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 import { addressPointsInBounds } from '../lib/nsw/address.js'
+import { lotsInBounds } from '../lib/nsw/cadastre.js'
 
 const TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
@@ -18,6 +19,10 @@ const PARCEL_LINE = 'site-parcel-line'
 const HOUSE_SRC = 'house-numbers'
 const HOUSE_LAYER = 'house-numbers-layer'
 const HOUSE_MIN_ZOOM = 17
+
+const CADASTRE_SRC = 'cadastre-outlines'
+const CADASTRE_LAYER = 'cadastre-outlines-layer'
+const CADASTRE_MIN_ZOOM = 15
 
 export default function MapView({ styleKey, onMapReady, onParcelClick, flyTarget, parcelData, marker, picking }) {
   const containerRef = useRef(null)
@@ -54,6 +59,16 @@ export default function MapView({ styleKey, onMapReady, onParcelClick, flyTarget
         id: PARCEL_LINE, type: 'line', source: PARCEL_SRC,
         paint: { 'line-color': '#fc4c02', 'line-width': 2 },
       })
+    }
+
+    function addCadastreLayer() {
+      if (map.getSource(CADASTRE_SRC)) return
+      map.addSource(CADASTRE_SRC, { type: 'geojson', data: emptyFC() })
+      map.addLayer({
+        id: CADASTRE_LAYER, type: 'line', source: CADASTRE_SRC,
+        minzoom: CADASTRE_MIN_ZOOM,
+        paint: { 'line-color': '#8a8a9a', 'line-width': 1, 'line-opacity': 0.7 },
+      }, PARCEL_FILL) // draw below the selected-parcel highlight
     }
 
     function addHouseLayer() {
@@ -99,14 +114,39 @@ export default function MapView({ styleKey, onMapReady, onParcelClick, flyTarget
       }, 300)
     }
 
+    let cadastreReqId = 0
+    let cadastreDebounce = null
+    function refreshCadastreOutlines() {
+      clearTimeout(cadastreDebounce)
+      if (map.getZoom() < CADASTRE_MIN_ZOOM) {
+        const src = map.getSource(CADASTRE_SRC)
+        if (src) src.setData(emptyFC())
+        return
+      }
+      cadastreDebounce = setTimeout(async () => {
+        const reqId = ++cadastreReqId
+        const b = map.getBounds()
+        try {
+          const fc = await lotsInBounds([b.getWest(), b.getSouth(), b.getEast(), b.getNorth()])
+          if (reqId !== cadastreReqId) return // stale — a newer pan/zoom superseded this
+          const src = map.getSource(CADASTRE_SRC)
+          if (src) src.setData(fc)
+        } catch {
+          // transient service error — leave existing outlines in place
+        }
+      }, 300)
+    }
+
     map.on('load', () => {
       addParcelLayers()
+      addCadastreLayer()
       addHouseLayer()
       onMapReady && onMapReady(map)
     })
     // Re-add custom layers after a basemap style switch.
-    map.on('style.load', () => { addParcelLayers(); addHouseLayer() })
+    map.on('style.load', () => { addParcelLayers(); addCadastreLayer(); addHouseLayer() })
     map.on('moveend', refreshHouseNumbers)
+    map.on('moveend', refreshCadastreOutlines)
 
     map.on('click', (e) => {
       clickRef.current && clickRef.current([e.lngLat.lng, e.lngLat.lat])

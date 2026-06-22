@@ -16,6 +16,7 @@ export async function exportReportPdf(reportRoot, filename = 'country-site-brief
   // for our (negative) letter-spacing values overlap glyphs.
   if (document.fonts?.ready) await document.fonts.ready
 
+  let firstSlice = true
   for (let i = 0; i < pages.length; i++) {
     const canvas = await html2canvas(pages[i], {
       scale: 2,
@@ -31,12 +32,30 @@ export async function exportReportPdf(reportRoot, filename = 'country-site-brief
         })
       },
     })
-    const img = canvas.toDataURL('image/jpeg', 0.92)
-    // Fit width, preserve aspect ratio.
-    const ratio = canvas.height / canvas.width
-    const h = pw * ratio
-    if (i > 0) pdf.addPage()
-    pdf.addImage(img, 'JPEG', 0, 0, pw, Math.min(h, ph))
+
+    // A .report-page can grow taller than one A4 page (long Country/Environment
+    // content). Forcing it into a fixed page height used to squash the whole
+    // image vertically; instead, slice it into page-height chunks and overflow
+    // onto extra PDF pages so the text keeps its native aspect ratio.
+    const sliceHeightPx = Math.floor(canvas.width * (ph / pw))
+    let renderedPx = 0
+    while (renderedPx < canvas.height) {
+      const sliceH = Math.min(sliceHeightPx, canvas.height - renderedPx)
+      const sliceCanvas = document.createElement('canvas')
+      sliceCanvas.width = canvas.width
+      sliceCanvas.height = sliceH
+      sliceCanvas
+        .getContext('2d')
+        .drawImage(canvas, 0, renderedPx, canvas.width, sliceH, 0, 0, canvas.width, sliceH)
+      const img = sliceCanvas.toDataURL('image/jpeg', 0.92)
+
+      if (!firstSlice) pdf.addPage()
+      const sliceHPt = pw * (sliceH / canvas.width)
+      pdf.addImage(img, 'JPEG', 0, 0, pw, sliceHPt)
+
+      renderedPx += sliceH
+      firstSlice = false
+    }
   }
 
   pdf.save(filename)

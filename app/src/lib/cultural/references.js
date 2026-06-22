@@ -37,10 +37,8 @@ export function countryFields(lgaKey, lalc) {
   // an indicative pointer. Either way, never a boundary or a guess.
   fields.push(nationField(lga, sw))
 
-  // Cultural significance / historical context: curated note if a person has
-  // verified one (or it's drafted from the same Acknowledgement of Country),
-  // else honest NA + statewide links.
-  fields.push(curatedOrNa('Cultural significance', lga, hasNotes, sw.significance.links))
+  // Historical context: curated note if a person has verified one (or it's
+  // drafted from the same Acknowledgement of Country), else honest NA + links.
   fields.push(curatedOrNa('Historical context', lga, hasNotes, sw.history.links))
 
   return fields

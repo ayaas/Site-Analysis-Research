@@ -1,6 +1,15 @@
+import { useState } from 'react'
 import SiteCard from './SiteCard.jsx'
 
+const TABS = [
+  { key: 'official', label: 'Official' },
+  { key: 'country', label: 'Country' },
+  { key: 'environment', label: 'Environment' },
+]
+
 export default function DetailPanel({ site, collapsed, onToggle, onExport, exporting }) {
+  const [tab, setTab] = useState('official')
+
   return (
     <aside className={`panel ${collapsed ? 'collapsed' : ''}`}>
       <div className="panel-head">
@@ -10,6 +19,22 @@ export default function DetailPanel({ site, collapsed, onToggle, onExport, expor
         <div className="site-sub">
           {site ? site.address : 'Search, then click a parcel on the map.'}
         </div>
+
+        {site && (
+          <div className="panel-tabs" role="tablist">
+            {TABS.map((t) => (
+              <button
+                key={t.key}
+                role="tab"
+                aria-selected={tab === t.key}
+                className={tab === t.key ? 'active' : ''}
+                onClick={() => setTab(t.key)}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="panel-body">
@@ -23,18 +48,26 @@ export default function DetailPanel({ site, collapsed, onToggle, onExport, expor
               local engagement or consultation with Traditional Custodians.
             </div>
 
-            <Section title="Official facts" fields={site.fields.official} />
-            <Section title="Planning controls" fields={site.fields.planning} />
-            <Section
-              title="Country context · references"
-              fields={site.fields.country}
-              footnote={
-                site.referencesReviewed
-                  ? `Curated references last reviewed ${site.referencesReviewed}.`
-                  : null
-              }
-            />
-            <Section title="Environment" fields={site.fields.environment} />
+            {tab === 'official' && (
+              <>
+                <Section title="Official facts" fields={site.fields.official} />
+                <Section title="Planning controls" fields={site.fields.planning} />
+              </>
+            )}
+
+            {tab === 'country' && (
+              <Section
+                title="Country context · references"
+                fields={site.fields.country}
+                footnote={
+                  site.referencesReviewed
+                    ? `Curated references last reviewed ${site.referencesReviewed}.`
+                    : null
+                }
+              />
+            )}
+
+            {tab === 'environment' && <Section title="Environment" fields={site.fields.environment} />}
 
             <SourceList citations={site.citations} />
 
