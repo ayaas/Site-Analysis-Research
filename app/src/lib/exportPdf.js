@@ -11,12 +11,25 @@ export async function exportReportPdf(reportRoot, filename = 'country-site-brief
   const pw = pdf.internal.pageSize.getWidth()
   const ph = pdf.internal.pageSize.getHeight()
 
+  // Web fonts must be fully loaded before the canvas snapshot, or html2canvas
+  // falls back to a system font mid-render and the metrics it then computes
+  // for our (negative) letter-spacing values overlap glyphs.
+  if (document.fonts?.ready) await document.fonts.ready
+
   for (let i = 0; i < pages.length; i++) {
     const canvas = await html2canvas(pages[i], {
       scale: 2,
       useCORS: true,
       backgroundColor: '#ffffff',
       logging: false,
+      // html2canvas measures negative letter-spacing incorrectly and renders
+      // glyphs squashed together — strip it in the cloned DOM used for the
+      // snapshot only; the live report/app styling is untouched.
+      onclone: (doc) => {
+        doc.querySelectorAll('*').forEach((el) => {
+          el.style.letterSpacing = 'normal'
+        })
+      },
     })
     const img = canvas.toDataURL('image/jpeg', 0.92)
     // Fit width, preserve aspect ratio.
