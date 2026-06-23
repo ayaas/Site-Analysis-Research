@@ -106,26 +106,3 @@ export async function exportReportPdf(reportRoot, filename = 'country-site-brief
 
   pdf.save(filename)
 }
-
-// Snapshot the Mapbox canvas to a data URL for the report cover.
-export function snapshotMap(map) {
-  if (!map) return null
-  try {
-    return map.getCanvas().toDataURL('image/png')
-  } catch (e) {
-    console.warn('Map snapshot failed:', e)
-    return null
-  }
-}
-
-// Resolve once the map has finished loading tiles — required before snapshot,
-// or the captured canvas can be blank / half-rendered.
-export function waitForIdle(map, timeout = 4000) {
-  if (!map) return Promise.resolve()
-  return new Promise((resolve) => {
-    if (map.loaded() && map.areTilesLoaded()) return resolve()
-    const done = () => { map.off('idle', done); clearTimeout(t); resolve() }
-    const t = setTimeout(done, timeout)
-    map.on('idle', done)
-  })
-}

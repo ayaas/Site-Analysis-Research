@@ -7,7 +7,8 @@ import ReportLayout from './components/ReportLayout.jsx'
 import { useSiteFacts } from './hooks/useSiteFacts.js'
 import { lotAtPoint } from './lib/nsw/cadastre.js'
 import { featureCollection, mergePolygons, centerOf, formatArea } from './lib/geo.js'
-import { exportReportPdf, snapshotMap, waitForIdle } from './lib/exportPdf.js'
+import { exportReportPdf } from './lib/exportPdf.js'
+import { captureSiteMap } from './lib/exportMap.js'
 
 export default function App() {
   const [styleKey, setStyleKey] = useState('streets')
@@ -93,18 +94,13 @@ export default function App() {
     if (!site || site.status !== 'ready') return
     setExporting(true)
     try {
-      const map = mapRef.current
-      if (map) {
-        // The cover plan must read as a flat 2D map, regardless of how the
-        // user has the live map tilted/rotated — flatten it just for the
-        // snapshot, then restore their view.
-        const prevBearing = map.getBearing()
-        const prevPitch = map.getPitch()
-        map.jumpTo({ bearing: 0, pitch: 0 })
-        await waitForIdle(map)
-        setMapImage(snapshotMap(map))
-        map.jumpTo({ bearing: prevBearing, pitch: prevPitch })
-      }
+      // Render the cover plan on a dedicated, fixed-size, always-flat,
+      // north-up offscreen map — never the live map, which varies by screen
+      // size, pan/zoom, tilt, and basemap style. Every export gets the same
+      // landscape frame, the same orthographic camera, and the site boundary
+      // fit-to-bounds with a consistent margin.
+      const mapDataUrl = await captureSiteMap({ geometry: site.geometry, center: site.center })
+      setMapImage(mapDataUrl)
       await new Promise((r) => setTimeout(r, 150)) // let report DOM paint the snapshot
       // Prefer the resolved address for the filename; fall back to locality
       // when no AddressPoint matched (site.name is then a status sentence).
