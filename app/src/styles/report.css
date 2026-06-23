@@ -81,7 +81,10 @@
   overflow: hidden;
   background: var(--surface-dark-soft);
 }
-.report-cover .cover-map img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+/* object-fit: contain — never crop or distort the captured plan. The
+   orange-highlighted parcel must stay fully visible and at its true
+   aspect ratio; max-height is a budget, not a crop. */
+.report-cover .cover-map img { width: 100%; max-height: 320px; object-fit: contain; display: block; }
 .report-cover .cover-map-attrib {
   font-family: var(--font-mono);
   font-size: 9px;
