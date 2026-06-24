@@ -8,6 +8,7 @@ import { useSiteFacts } from './hooks/useSiteFacts.js'
 import { useNearbyPlaces } from './hooks/useNearbyPlaces.js'
 import { lotAtPoint } from './lib/nsw/cadastre.js'
 import { featureCollection, mergePolygons, centerOf, formatArea, circlePolygon } from './lib/geo.js'
+import { colorForIndex } from './lib/poi.js'
 import { exportReportPdf } from './lib/exportPdf.js'
 import { captureSiteMap } from './lib/exportMap.js'
 
@@ -124,8 +125,13 @@ export default function App() {
   const nearbyPoints = {
     type: 'FeatureCollection',
     features: nearby.places
+      .map((p, i) => ({ ...p, i }))
       .filter((p) => p.center)
-      .map((p) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: p.center }, properties: { name: p.name } })),
+      .map((p) => ({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: p.center },
+        properties: { name: p.name, color: colorForIndex(p.i) },
+      })),
   }
 
   return (

@@ -155,7 +155,7 @@ export default function MapView({
         id: 'nearby-points-layer', type: 'circle', source: NEARBY_POINTS_SRC,
         paint: {
           'circle-radius': 5,
-          'circle-color': '#534ab7',
+          'circle-color': ['get', 'color'],
           'circle-stroke-width': 1.5,
           'circle-stroke-color': '#ffffff',
         },

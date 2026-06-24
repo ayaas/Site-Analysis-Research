@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import SiteCard from './SiteCard.jsx'
+import { colorForIndex } from '../lib/poi.js'
 
 const TABS = [
   { key: 'official', label: 'Official' },
@@ -8,7 +9,7 @@ const TABS = [
   { key: 'nearby', label: 'Nearby' },
 ]
 
-const RADIUS_OPTIONS = [100, 200, 500]
+const RADIUS_OPTIONS = [100, 200]
 
 export default function DetailPanel({ site, collapsed, onToggle, onExport, exporting, nearby, radiusM, onRadiusChange }) {
   const [tab, setTab] = useState('official')
@@ -128,6 +129,7 @@ function NearbySection({ nearby, radiusM, onRadiusChange }) {
 
       {nearby.places.map((p, i) => (
         <div className="nearby-card" key={`${p.name}-${i}`}>
+          <span className="nearby-swatch" style={{ background: colorForIndex(i) }} aria-hidden="true" />
           <div>
             <div className="value">{p.name}</div>
             <div className="label">{p.category} · {p.distanceM}m away</div>

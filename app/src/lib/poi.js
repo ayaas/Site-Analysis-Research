@@ -8,6 +8,17 @@
 const TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 const TILESET = 'mapbox.mapbox-streets-v8'
 
+// Each place gets its own colour, shared between the panel list and the map
+// pins so a reader can match one to the other at a glance.
+const PLACE_COLORS = [
+  '#fc4c02', '#1d4ed8', '#0f6e56', '#b45309',
+  '#9333ea', '#dc2626', '#0891b2', '#65a30d',
+]
+
+export function colorForIndex(i) {
+  return PLACE_COLORS[i % PLACE_COLORS.length]
+}
+
 function titleCase(s) {
   return s.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
