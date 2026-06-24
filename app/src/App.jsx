@@ -10,7 +10,7 @@ import { lotAtPoint } from './lib/nsw/cadastre.js'
 import { featureCollection, mergePolygons, centerOf, formatArea, circlePolygon } from './lib/geo.js'
 import { colorForIndex } from './lib/poi.js'
 import { exportReportPdf } from './lib/exportPdf.js'
-import { captureSiteMap } from './lib/exportMap.js'
+import { captureSiteMap, captureNearbyMap } from './lib/exportMap.js'
 
 export default function App() {
   const [styleKey, setStyleKey] = useState('streets')
@@ -18,6 +18,7 @@ export default function App() {
   const [flyTarget, setFlyTarget] = useState(null)
   const [exporting, setExporting] = useState(false)
   const [mapImage, setMapImage] = useState(null)
+  const [nearbyMapImage, setNearbyMapImage] = useState(null)
 
   const [parcels, setParcels] = useState([]) // selected Lot records
   const [multiMode, setMultiMode] = useState(false)
@@ -26,6 +27,7 @@ export default function App() {
   const [pickError, setPickError] = useState(null)
   const [radiusM, setRadiusM] = useState(200)
   const [tab, setTab] = useState('official')
+  const [bucketFilter, setBucketFilter] = useState('All')
 
   const mapRef = useRef(null)
   const reportRef = useRef(null)
@@ -106,7 +108,17 @@ export default function App() {
       // fit-to-bounds with a consistent margin.
       const mapDataUrl = await captureSiteMap({ geometry: site.geometry, center: site.center })
       setMapImage(mapDataUrl)
-      await new Promise((r) => setTimeout(r, 150)) // let report DOM paint the snapshot
+
+      // Same idea for the Nearby section — a fresh fixed-frame capture of
+      // the radius ring + pins, independent of whatever tab/zoom is live.
+      if (nearby.places.length > 0 && confirmed?.center) {
+        const nearbyDataUrl = await captureNearbyMap({ center: confirmed.center, radiusM, places: nearby.places })
+        setNearbyMapImage(nearbyDataUrl)
+      } else {
+        setNearbyMapImage(null)
+      }
+
+      await new Promise((r) => setTimeout(r, 150)) // let report DOM paint the snapshots
       // Prefer the resolved address for the filename; fall back to locality
       // when no AddressPoint matched (site.name is then a status sentence).
       const base = site.name && !/not available/i.test(site.name) ? site.name : site.address || 'country-site-brief'
@@ -130,8 +142,8 @@ export default function App() {
     ? {
         type: 'FeatureCollection',
         features: nearby.places
-          .map((p, i) => ({ ...p, i }))
-          .filter((p) => p.center)
+          .map((p, i) => ({ ...p, i })) // colour is tied to position in the FULL list, never the filtered one
+          .filter((p) => p.center && (bucketFilter === 'All' || p.bucket === bucketFilter))
           .map((p) => ({
             type: 'Feature',
             geometry: { type: 'Point', coordinates: p.center },
@@ -212,11 +224,21 @@ export default function App() {
           onRadiusChange={setRadiusM}
           tab={tab}
           onTabChange={setTab}
+          bucketFilter={bucketFilter}
+          onBucketChange={setBucketFilter}
         />
       </div>
 
       {site && (
-        <ReportLayout ref={reportRef} site={site} citations={site.citations} mapImage={mapImage} />
+        <ReportLayout
+          ref={reportRef}
+          site={site}
+          citations={site.citations}
+          mapImage={mapImage}
+          nearbyPlaces={nearby.places}
+          nearbyMapImage={nearbyMapImage}
+          radiusM={radiusM}
+        />
       )}
     </div>
   )

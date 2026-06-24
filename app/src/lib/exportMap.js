@@ -6,8 +6,9 @@
 // that: same pixel dimensions, same flat top-down camera, same basemap,
 // every export, regardless of the live map's current state.
 import mapboxgl from 'mapbox-gl'
-import { bboxOf } from './geo.js'
+import { bboxOf, circlePolygon } from './geo.js'
 import { addressPointsInBounds } from './nsw/address.js'
+import { colorForIndex } from './poi.js'
 
 const TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 const STYLE = 'mapbox://styles/mapbox/light-v11'
@@ -142,6 +143,109 @@ export function captureSiteMap({ geometry, center }) {
           clearTimeout(timer)
           addHouseNumbersThenCapture()
         })
+      }
+    })
+
+    map.on('error', () => cleanup(null))
+  })
+}
+
+const NEARBY_CIRCLE_SRC = 'export-nearby-circle'
+const NEARBY_POINTS_SRC = 'export-nearby-points'
+
+/** Render the nearby-places radius ring + coloured pins for the PDF report.
+ *  `places` must be the full, unfiltered list (same order as the panel's
+ *  legend) so each pin's colour matches its legend entry via colorForIndex. */
+export function captureNearbyMap({ center, radiusM, places }) {
+  if (!TOKEN || !center) return Promise.resolve(null)
+
+  return new Promise((resolve) => {
+    const container = document.createElement('div')
+    container.style.position = 'fixed'
+    container.style.left = '-10000px'
+    container.style.top = '0'
+    container.style.width = `${EXPORT_MAP_W}px`
+    container.style.height = `${EXPORT_MAP_H}px`
+    document.body.appendChild(container)
+
+    mapboxgl.accessToken = TOKEN
+    const map = new mapboxgl.Map({
+      container,
+      style: STYLE,
+      center,
+      zoom: FALLBACK_ZOOM,
+      bearing: 0,
+      pitch: 0,
+      interactive: false,
+      attributionControl: false,
+      preserveDrawingBuffer: true,
+      fadeDuration: 0,
+    })
+
+    function cleanup(result) {
+      map.remove()
+      container.remove()
+      resolve(result)
+    }
+
+    map.on('load', () => {
+      const circle = circlePolygon(center, radiusM)
+      map.addSource(NEARBY_CIRCLE_SRC, {
+        type: 'geojson',
+        data: { type: 'Feature', properties: {}, geometry: circle },
+      })
+      map.addLayer({
+        id: 'export-nearby-circle-line', type: 'line', source: NEARBY_CIRCLE_SRC,
+        paint: { 'line-color': '#534ab7', 'line-width': 2, 'line-dasharray': [2, 2] },
+      })
+
+      map.addSource(NEARBY_POINTS_SRC, {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: places
+            .map((p, i) => ({ ...p, i }))
+            .filter((p) => p.center)
+            .map((p) => ({
+              type: 'Feature',
+              geometry: { type: 'Point', coordinates: p.center },
+              properties: { color: colorForIndex(p.i) },
+            })),
+        },
+      })
+      map.addLayer({
+        id: 'export-nearby-points-layer', type: 'circle', source: NEARBY_POINTS_SRC,
+        paint: {
+          'circle-radius': 7,
+          'circle-color': ['get', 'color'],
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff',
+        },
+      })
+
+      const bbox = bboxOf(circle)
+      if (bbox) {
+        map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], {
+          padding: FIT_PADDING,
+          bearing: 0,
+          pitch: 0,
+          animate: false,
+          maxZoom: 19,
+        })
+      }
+
+      const capture = () => {
+        try {
+          cleanup(map.getCanvas().toDataURL('image/png'))
+        } catch (e) {
+          console.warn('Export nearby-map snapshot failed:', e)
+          cleanup(null)
+        }
+      }
+      if (map.loaded() && map.areTilesLoaded()) capture()
+      else {
+        const t = setTimeout(capture, 4000)
+        map.once('idle', () => { clearTimeout(t); capture() })
       }
     })
 

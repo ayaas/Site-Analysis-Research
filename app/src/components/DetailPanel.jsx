@@ -12,6 +12,7 @@ const RADIUS_OPTIONS = [100, 200]
 
 export default function DetailPanel({
   site, collapsed, onToggle, onExport, exporting, nearby, radiusM, onRadiusChange, tab, onTabChange,
+  bucketFilter, onBucketChange,
 }) {
   return (
     <aside className={`panel ${collapsed ? 'collapsed' : ''}`}>
@@ -73,7 +74,13 @@ export default function DetailPanel({
             {tab === 'environment' && <Section title="Environment" fields={site.fields.environment} />}
 
             {tab === 'nearby' && (
-              <NearbySection nearby={nearby} radiusM={radiusM} onRadiusChange={onRadiusChange} />
+              <NearbySection
+                nearby={nearby}
+                radiusM={radiusM}
+                onRadiusChange={onRadiusChange}
+                bucketFilter={bucketFilter}
+                onBucketChange={onBucketChange}
+              />
             )}
 
             <SourceList citations={site.citations} />
@@ -106,7 +113,13 @@ function Section({ title, fields, footnote }) {
   )
 }
 
-function NearbySection({ nearby, radiusM, onRadiusChange }) {
+function NearbySection({ nearby, radiusM, onRadiusChange, bucketFilter, onBucketChange }) {
+  // Colour is tied to a place's position in the full, unfiltered list — so a
+  // pin and its card stay the same colour no matter which bucket is active.
+  const indexed = nearby.places.map((p, i) => ({ ...p, i }))
+  const presentBuckets = ['All', ...new Set(indexed.map((p) => p.bucket))]
+  const shown = bucketFilter === 'All' ? indexed : indexed.filter((p) => p.bucket === bucketFilter)
+
   return (
     <section className="panel-section">
       <span className="eyebrow">Nearby places</span>
@@ -118,6 +131,16 @@ function NearbySection({ nearby, radiusM, onRadiusChange }) {
         ))}
       </div>
 
+      {nearby.places.length > 0 && (
+        <div className="bucket-toggle">
+          {presentBuckets.map((b) => (
+            <button key={b} className={bucketFilter === b ? 'active' : ''} onClick={() => onBucketChange(b)}>
+              {b}
+            </button>
+          ))}
+        </div>
+      )}
+
       {nearby.status === 'loading' && <div className="section-foot">Looking up nearby places…</div>}
       {nearby.status === 'error' && (
         <div className="section-foot">Nearby places lookup failed — try again shortly.</div>
@@ -125,10 +148,13 @@ function NearbySection({ nearby, radiusM, onRadiusChange }) {
       {nearby.status === 'ready' && nearby.places.length === 0 && (
         <div className="section-foot">No named places found within {radiusM}m.</div>
       )}
+      {nearby.status === 'ready' && nearby.places.length > 0 && shown.length === 0 && (
+        <div className="section-foot">No {bucketFilter.toLowerCase()} places within {radiusM}m.</div>
+      )}
 
-      {nearby.places.map((p, i) => (
-        <div className="nearby-card" key={`${p.name}-${i}`}>
-          <span className="nearby-swatch" style={{ background: colorForIndex(i) }} aria-hidden="true" />
+      {shown.map((p) => (
+        <div className="nearby-card" key={`${p.name}-${p.i}`}>
+          <span className="nearby-swatch" style={{ background: colorForIndex(p.i) }} aria-hidden="true" />
           <div>
             <div className="value">{p.name}</div>
             <div className="label">{p.category} · {p.distanceM}m away</div>

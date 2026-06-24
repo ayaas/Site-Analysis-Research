@@ -468,6 +468,22 @@ button { font-family: var(--font-display); cursor: pointer; }
 }
 .radius-toggle button.active { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
 
+.bucket-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-bottom: var(--s-lg);
+}
+.bucket-toggle button {
+  border: 1px solid var(--hairline);
+  background: var(--canvas);
+  color: var(--body);
+  border-radius: var(--r-full);
+  padding: 5px var(--s-md);
+  font-size: 12px;
+}
+.bucket-toggle button.active { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
+
 .nearby-card {
   display: flex;
   align-items: flex-start;

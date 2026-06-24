@@ -23,7 +23,30 @@ function titleCase(s) {
   return s.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
-/** Nearby POIs within `radiusM` of [lng, lat]. Returns [{ name, category, distanceM, center }]. */
+// Coarse buckets for the Nearby-tab filter — Mapbox's own POI `class` values
+// are much finer-grained than this, so a handful of raw classes map onto
+// each bucket. Anything unrecognised falls into "Other" rather than being
+// dropped, so the count shown always matches what's actually plotted.
+export const BUCKETS = ['Food & drink', 'Shopping', 'Arts & entertainment', 'Buildings & landmarks', 'Education', 'Health', 'Other']
+
+const BUCKET_RULES = [
+  [/food_and_drink/, 'Food & drink'],
+  [/shopping/, 'Shopping'],
+  [/arts_and_entertainment/, 'Arts & entertainment'],
+  [/landmark|historic|structure|place_like|park_like/, 'Buildings & landmarks'],
+  [/education/, 'Education'],
+  [/medical/, 'Health'],
+]
+
+function bucketFor(rawClass) {
+  const c = (rawClass || '').toLowerCase()
+  for (const [re, bucket] of BUCKET_RULES) {
+    if (re.test(c)) return bucket
+  }
+  return 'Other'
+}
+
+/** Nearby POIs within `radiusM` of [lng, lat]. Returns [{ name, category, bucket, distanceM, center }]. */
 export async function poiNear([lng, lat], radiusM = 200, limit = 20) {
   if (!TOKEN) return []
 
@@ -39,11 +62,15 @@ export async function poiNear([lng, lat], radiusM = 200, limit = 20) {
 
   return (data.features || [])
     .filter((f) => f.properties?.name)
-    .map((f) => ({
-      name: f.properties.name,
-      category: titleCase(f.properties.class || f.properties.type || 'Place'),
-      distanceM: Math.round(f.properties.tilequery?.distance ?? 0),
-      center: f.geometry?.coordinates || null,
-    }))
+    .map((f) => {
+      const rawClass = f.properties.class || f.properties.type
+      return {
+        name: f.properties.name,
+        category: titleCase(rawClass || 'Place'),
+        bucket: bucketFor(rawClass),
+        distanceM: Math.round(f.properties.tilequery?.distance ?? 0),
+        center: f.geometry?.coordinates || null,
+      }
+    })
     .sort((a, b) => a.distanceM - b.distanceM)
 }

@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import { colorForIndex } from '../lib/poi.js'
 
 // Off-screen, A4-proportioned report used as the PDF source.
 // Together AI design language (see report.css). Page 1 = cover,
@@ -9,7 +10,10 @@ const today = new Date().toLocaleDateString('en-AU', {
 
 const MAPBOX_ATTRIB = '© Mapbox  © OpenStreetMap  Improve this map. Basemap © Mapbox & OpenStreetMap contributors.'
 
-const ReportLayout = forwardRef(function ReportLayout({ site, citations, mapImage }, ref) {
+const ReportLayout = forwardRef(function ReportLayout(
+  { site, citations, mapImage, nearbyPlaces, nearbyMapImage, radiusM },
+  ref
+) {
   const official = site.fields.official.filter((f) => f.kind !== 'loading')
   const planning = site.fields.planning.filter((f) => f.kind !== 'loading')
   const country = site.fields.country.filter((f) => f.kind !== 'loading')
@@ -98,6 +102,38 @@ const ReportLayout = forwardRef(function ReportLayout({ site, citations, mapImag
             <Field key={i} f={f} />
           ))}
         </div>
+
+        {nearbyMapImage && nearbyPlaces?.length > 0 && (() => {
+          const MAX_KEY_ROWS = 20 // keeps this block within one page; pins on the map cover all of them
+          const shownPlaces = nearbyPlaces.slice(0, MAX_KEY_ROWS)
+          const hiddenCount = nearbyPlaces.length - shownPlaces.length
+          return (
+            <>
+              <h2>Nearby places · {radiusM}m radius</h2>
+              <div className="report-nearby">
+                <div className="report-nearby-map">
+                  <img src={nearbyMapImage} alt={`Places within ${radiusM}m of the site`} />
+                </div>
+                <ol className="report-nearby-key">
+                  {shownPlaces.map((p, i) => (
+                    <li key={`${p.name}-${i}`}>
+                      <span className="key-swatch" style={{ background: colorForIndex(i) }} />
+                      <span className="key-text">
+                        <strong>{p.name}</strong>
+                        <span className="key-meta">{p.category} · {p.distanceM}m</span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <div className="report-nearby-note">
+                {hiddenCount > 0 ? `+${hiddenCount} more in this radius — see the Nearby tab in-app. ` : ''}
+                Source: Mapbox places data — general-purpose mapping data, not an official NSW
+                register. Aboriginal cultural/heritage sites are deliberately not shown here.
+              </div>
+            </>
+          )
+        })()}
 
         <h2>Sources &amp; citations</h2>
         <ol className="report-citations">
