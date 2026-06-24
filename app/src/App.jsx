@@ -145,7 +145,7 @@ export default function App() {
       <header className="topbar">
         <div className="wordmark">
           <span className="ribbon" />
-          <span className="mark">Country</span>
+          <span className="mark">Site Analysis Research</span>
           <span className="eyebrow" style={{ color: 'var(--body-muted)' }}>Site research · NSW</span>
         </div>
         <div className="spacer" />
