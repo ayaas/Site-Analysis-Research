@@ -16,8 +16,9 @@ export function useNearbyPlaces(center, radiusM) {
     setState((prev) => ({ status: 'loading', places: prev.places }))
 
     // A wider radius should be allowed to surface more places, not the same
-    // fixed cap as the tightest radius.
-    const limit = radiusM >= 200 ? 30 : 20
+    // fixed cap as the tightest radius — scale linearly across the slider's
+    // 100–200m range, from 20 results up to 30.
+    const limit = Math.round(20 + ((radiusM - 100) / 100) * 10)
     poiNear(center, radiusM, limit)
       .then((places) => {
         if (!cancelled) setState({ status: 'ready', places })

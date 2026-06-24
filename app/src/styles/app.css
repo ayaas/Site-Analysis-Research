@@ -450,23 +450,24 @@ button { font-family: var(--font-display); cursor: pointer; }
 .panel-section { margin-bottom: var(--s-2xl); }
 .panel-section > .eyebrow { display: block; margin-bottom: var(--s-md); }
 
-/* Nearby-places radius toggle + list */
-.radius-toggle {
+/* Nearby-places radius slider + list */
+.radius-slider {
   display: flex;
-  gap: var(--s-xs);
+  align-items: center;
+  gap: var(--s-md);
   margin-bottom: var(--s-md);
 }
-.radius-toggle button {
-  border: 1px solid var(--hairline);
-  background: var(--canvas);
-  color: var(--body);
-  border-radius: var(--r-sm);
-  padding: 6px var(--s-md);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
+.radius-slider input[type='range'] {
+  flex: 1 1 auto;
+  accent-color: var(--ink);
 }
-.radius-toggle button.active { background: var(--ink); color: var(--on-dark); border-color: var(--ink); }
+.radius-readout {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 36px;
+  text-align: right;
+}
 
 .bucket-toggle {
   display: flex;

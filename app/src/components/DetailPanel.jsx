@@ -8,7 +8,9 @@ const TABS = [
   { key: 'nearby', label: 'Nearby' },
 ]
 
-const RADIUS_OPTIONS = [100, 200]
+const RADIUS_MIN = 100
+const RADIUS_MAX = 200
+const RADIUS_STEP = 10
 
 export default function DetailPanel({
   site, collapsed, onToggle, onExport, exporting, nearby, radiusM, onRadiusChange, tab, onTabChange,
@@ -123,12 +125,17 @@ function NearbySection({ nearby, radiusM, onRadiusChange, bucketFilter, onBucket
   return (
     <section className="panel-section">
       <span className="eyebrow">Nearby places</span>
-      <div className="radius-toggle">
-        {RADIUS_OPTIONS.map((r) => (
-          <button key={r} className={radiusM === r ? 'active' : ''} onClick={() => onRadiusChange(r)}>
-            {r}m
-          </button>
-        ))}
+      <div className="radius-slider">
+        <input
+          type="range"
+          min={RADIUS_MIN}
+          max={RADIUS_MAX}
+          step={RADIUS_STEP}
+          value={radiusM}
+          onChange={(e) => onRadiusChange(Number(e.target.value))}
+          aria-label="Search radius"
+        />
+        <span className="radius-readout">{radiusM}m</span>
       </div>
 
       {nearby.places.length > 0 && (
