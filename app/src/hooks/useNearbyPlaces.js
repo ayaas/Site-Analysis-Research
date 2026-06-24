@@ -15,7 +15,10 @@ export function useNearbyPlaces(center, radiusM) {
     let cancelled = false
     setState((prev) => ({ status: 'loading', places: prev.places }))
 
-    poiNear(center, radiusM)
+    // A wider radius should be allowed to surface more places, not the same
+    // fixed cap as the tightest radius — Tilequery allows up to 50 per call.
+    const limit = radiusM >= 200 ? 50 : 20
+    poiNear(center, radiusM, limit)
       .then((places) => {
         if (!cancelled) setState({ status: 'ready', places })
       })
