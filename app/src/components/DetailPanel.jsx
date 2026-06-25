@@ -48,11 +48,13 @@ export default function DetailPanel({
           <EmptyState />
         ) : (
           <>
-            <div className="safety-banner">
-              <strong>Indigenous boundaries are approximate and contested — not ownership lines.</strong>{' '}
-              This tool surfaces public information and links to sources. It does not replace
-              local engagement or consultation with Traditional Custodians.
-            </div>
+            {tab === 'country' && (
+              <div className="safety-banner">
+                <strong>Indigenous boundaries are approximate and contested — not ownership lines.</strong>{' '}
+                This tool surfaces public information and links to sources. It does not replace
+                local engagement or consultation with Traditional Custodians.
+              </div>
+            )}
 
             {tab === 'official' && (
               <>
