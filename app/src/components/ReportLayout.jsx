@@ -40,16 +40,16 @@ const ReportLayout = forwardRef(function ReportLayout(
             <div><div className="k">State</div><div className="v">New South Wales</div></div>
             <div><div className="k">LGA</div><div className="v">{site.lgaName || '—'}</div></div>
             <div><div className="k">Prepared</div><div className="v">{today}</div></div>
-            <div><div className="k">Status</div><div className="v">Draft · research aid</div></div>
+            <div><div className="k">Status</div><div className="v">Research Aid</div></div>
           </div>
           <p className="cover-foot" style={{ marginTop: 24 }}>
-            A research aid for architecture students. Indigenous boundaries shown or
-            referenced are approximate and contested — not ownership lines. This document
-            does not replace local engagement or consultation with Traditional Custodians.
+            Indigenous boundaries shown or referenced are approximate and contested —
+            not ownership lines. This document does not replace local engagement or
+            consultation with Traditional Custodians.
           </p>
         </div>
         <div className="report-foot">
-          <span>Country · Site Research</span>
+          <span>Site Research</span>
           <span>Page 1</span>
         </div>
       </section>

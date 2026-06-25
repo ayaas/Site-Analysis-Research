@@ -47,10 +47,52 @@ function groupIntoSections(children) {
   return sections
 }
 
+// Recursively split an element that's taller than `maxH` by its own
+// children, so a block that's still too big even alone on a fresh page
+// (e.g. a long nearby-places list) never gets cut off or overlaps the
+// footer — it spills onto as many continuation fragments as it needs.
+// Each fragment is a fresh clone of the original element's tag/attributes
+// holding a subset of its (cloned) children.
+function splitOversized(el, maxH) {
+  const h = el.getBoundingClientRect().height
+  if (h <= maxH) return [el]
+
+  const kids = Array.from(el.children)
+  if (kids.length === 0) return [el] // leaf — nothing left to split, may still overflow
+
+  const fragments = []
+  let current = []
+  let currentH = 0
+  const flush = () => {
+    if (current.length === 0) return
+    const wrapper = el.cloneNode(false)
+    current.forEach((k) => wrapper.appendChild(k.cloneNode(true)))
+    fragments.push(wrapper)
+    current = []
+    currentH = 0
+  }
+
+  for (const kid of kids) {
+    const kidH = kid.getBoundingClientRect().height
+    if (kidH > maxH) {
+      flush()
+      fragments.push(...splitOversized(kid, maxH))
+      continue
+    }
+    if (current.length > 0 && currentH + kidH > maxH) flush()
+    current.push(kid)
+    currentH += kidH
+  }
+  flush()
+
+  return fragments
+}
+
 // Pack sections into groups that each fit within one page's usable height.
 // A whole section moves to the next page rather than splitting a heading
 // from its content; only a section taller than a full page is split
-// internally (between its own children, never inside one).
+// internally (between its own children, recursing into any single child
+// that's still too tall on its own).
 function buildContentPageChunks(content, pageNumberStart) {
   const usableH = PAGE_H - PAGE_PAD_TOP - PAGE_PAD_BOTTOM
   const sections = groupIntoSections(Array.from(content.children))
@@ -78,6 +120,11 @@ function buildContentPageChunks(content, pageNumberStart) {
       flush()
       for (const child of section) {
         const h = child.getBoundingClientRect().height
+        if (h > usableH) {
+          flush()
+          splitOversized(child, usableH).forEach((part) => groups.push([part]))
+          continue
+        }
         if (current.length > 0 && currentH + h > usableH) flush()
         current.push(child)
         currentH += h
@@ -93,7 +140,7 @@ function buildContentPageChunks(content, pageNumberStart) {
 
     const foot = document.createElement('div')
     foot.className = 'report-foot'
-    foot.innerHTML = `<span>Country · Site Research</span><span>Page ${pageNumberStart + i}</span>`
+    foot.innerHTML = `<span>Site Research</span><span>Page ${pageNumberStart + i}</span>`
     page.appendChild(foot)
 
     return page
