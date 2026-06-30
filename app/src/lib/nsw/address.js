@@ -3,7 +3,6 @@
 // LIKE query (20–50 s, unindexed), and pick the closest point to the click.
 import { arcgis, envelopeGeom } from './client.js'
 import { LAYERS } from './endpoints.js'
-import { pointInPolygon } from '../geo.js'
 
 function titleCaseAddress(s) {
   if (!s) return s
@@ -11,29 +10,7 @@ function titleCaseAddress(s) {
   return s.toLowerCase().replace(/\b([a-z])/g, (c) => c.toUpperCase())
 }
 
-async function queryNearestAddress(lngLat, half, timeout, parcelGeometry) {
-  const data = await arcgis(`${LAYERS.addressPoint}/query`, {
-    geometry: envelopeGeom(lngLat, half),
-    geometryType: 'esriGeometryEnvelope',
-    inSR: '4326',
-    outSR: '4326',
-    spatialRel: 'esriSpatialRelIntersects',
-    outFields: 'address',
-    returnGeometry: 'true',
-    resultRecordCount: '30',
-  }, { label: 'address', timeout })
-
-  let feats = data.features || []
-  if (feats.length === 0) return null
-
-  // Prefer an address point that actually falls inside the selected parcel —
-  // the parcel's bbox-centre search point can sit closer to a neighbouring
-  // lot's address point than the lot's own, especially for narrow/skewed lots.
-  if (parcelGeometry) {
-    const inside = feats.filter((f) => f.geometry && pointInPolygon([f.geometry.x, f.geometry.y], parcelGeometry))
-    if (inside.length > 0) feats = inside
-  }
-
+function pickClosest(feats, lngLat) {
   const [lng, lat] = lngLat
   let best = null
   let bestD = Infinity
@@ -47,6 +24,61 @@ async function queryNearestAddress(lngLat, half, timeout, parcelGeometry) {
     }
   }
   return best ? titleCaseAddress(best) : null
+}
+
+function geoJsonToEsriPolygon(geometry) {
+  if (!geometry) return null
+  const coords = geometry.type === 'Polygon'
+    ? geometry.coordinates
+    : geometry.type === 'MultiPolygon'
+      ? geometry.coordinates.flat(1)
+      : null
+  if (!coords) return null
+  return JSON.stringify({
+    rings: coords,
+    spatialReference: { wkid: 4326 },
+  })
+}
+
+async function queryNearestAddress(lngLat, half, timeout, parcelGeometry) {
+  // When a parcel polygon is available, query address points that spatially
+  // intersect it directly — this is authoritative and avoids the neighbour-lot
+  // bleed that the envelope approach suffers on narrow or strata lots.
+  if (parcelGeometry) {
+    const esriPoly = geoJsonToEsriPolygon(parcelGeometry)
+    if (esriPoly) {
+      const polyData = await arcgis(`${LAYERS.addressPoint}/query`, {
+        geometry: esriPoly,
+        geometryType: 'esriGeometryPolygon',
+        inSR: '4326',
+        outSR: '4326',
+        spatialRel: 'esriSpatialRelIntersects',
+        outFields: 'address',
+        returnGeometry: 'true',
+        resultRecordCount: '10',
+      }, { label: 'address', timeout }).catch(() => null)
+
+      const polyFeats = polyData?.features || []
+      if (polyFeats.length > 0) return pickClosest(polyFeats, lngLat)
+    }
+  }
+
+  // Fallback: envelope query around the centroid (handles cases where the NSW
+  // address point sits just outside the parcel boundary due to spatial offsets).
+  const data = await arcgis(`${LAYERS.addressPoint}/query`, {
+    geometry: envelopeGeom(lngLat, half),
+    geometryType: 'esriGeometryEnvelope',
+    inSR: '4326',
+    outSR: '4326',
+    spatialRel: 'esriSpatialRelIntersects',
+    outFields: 'address',
+    returnGeometry: 'true',
+    resultRecordCount: '30',
+  }, { label: 'address', timeout })
+
+  const feats = data.features || []
+  if (feats.length === 0) return null
+  return pickClosest(feats, lngLat)
 }
 
 function houseNumber(address) {
