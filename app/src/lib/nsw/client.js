@@ -12,8 +12,7 @@ export class ServiceError extends Error {
 
 const DEFAULT_TIMEOUT = 12000
 
-/** GET an ArcGIS endpoint with params, JSON out, timeout + error normalisation. */
-export async function arcgis(url, params = {}, { timeout = DEFAULT_TIMEOUT, label } = {}) {
+async function arcgisOnce(url, params, timeout, label) {
   const qs = new URLSearchParams({ f: 'json', ...params }).toString()
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), timeout)
@@ -21,20 +20,37 @@ export async function arcgis(url, params = {}, { timeout = DEFAULT_TIMEOUT, labe
     const res = await fetch(`${url}?${qs}`, { signal: controller.signal })
     if (!res.ok) throw new ServiceError(`HTTP ${res.status}`, { layer: label })
     const data = await res.json()
-    // ArcGIS returns 200 with an { error } body on failure.
-    if (data.error) {
-      throw new ServiceError(data.error.message || 'Service error', { layer: label })
-    }
+    if (data.error) throw new ServiceError(data.error.message || 'Service error', { layer: label })
     return data
   } catch (err) {
-    if (err.name === 'AbortError') {
-      throw new ServiceError('Service timed out', { layer: label, cause: err })
-    }
+    if (err.name === 'AbortError') throw new ServiceError('Service timed out', { layer: label, cause: err })
     if (err instanceof ServiceError) throw err
     throw new ServiceError(err.message || 'Network error', { layer: label, cause: err })
   } finally {
     clearTimeout(timer)
   }
+}
+
+/**
+ * GET an ArcGIS endpoint with params, JSON out, timeout + error normalisation.
+ * Retries once on timeout or transient network errors — the NSW ArcGIS services
+ * have highly variable latency and most slow calls recover on a second attempt.
+ */
+export async function arcgis(url, params = {}, { timeout = DEFAULT_TIMEOUT, label, retries = 1 } = {}) {
+  let lastErr
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 800))
+    try {
+      return await arcgisOnce(url, params, timeout, label)
+    } catch (err) {
+      lastErr = err
+      // Only retry on timeout or network errors — a real service error (404,
+      // auth, bad query) won't fix itself on retry.
+      const retryable = err.message?.includes('timed out') || err.message?.includes('Network error') || err.message?.includes('fetch')
+      if (!retryable) throw err
+    }
+  }
+  throw lastErr
 }
 
 /** Esri point-geometry JSON for a [lng, lat] in WGS84. */
